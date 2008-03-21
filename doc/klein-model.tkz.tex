@@ -1,0 +1,31 @@
+\begin{figure}[hb]
+  \centering
+  \begin{tikzpicture}[]
+    \coordinate [label=below left:$O$] (O) at (0, 0) {};
+    \coordinate [label=above right:$X$] (X) at (60:3cm) {};
+    \coordinate [label=below left:$Y$] (Y) at (200:3cm) {};
+    \coordinate [label=above:$A$] (A) at ($ (Y)!.2!(X)$) {};
+    \coordinate [label=above:$B$] (B) at ($ (X)!.3!(Y)$) {};
+    \coordinate [label=above left:$P$] (P) at (285:1.5cm) {};
+
+    \coordinate (m) at ($ (X)!3!(P) $);
+    \coordinate (n) at ($ (Y)!3!(P) $);
+
+    \node [draw,thick,circle through=(X)] (circle) at (O) {};
+
+
+    \draw (X) --node[auto]{$l$} (Y);
+    \coordinate [label=below:$M$] (M) at (intersection 1 of X--m and circle) {};
+    \coordinate [label=below:$N$] (N) at (intersection 1 of Y--n and circle) {};
+
+    \draw (X) -- (M);
+    \draw (Y) -- (N);
+    \begin{scope}
+      \clip (O) circle(3cm);
+      \foreach \a in {5,15,25,35,45,55,65} \draw[ultra thin] ($ (P)+(180+\a:5cm) $) -- ($ (P)+(\a:5cm) $);
+    \end{scope}
+    \foreach \p in {O, X, Y, A, B, P, M, N} \draw node[dot] at (\p) {};
+  \end{tikzpicture}
+  \caption{Модель Клейна в круге}
+  \label{fig:klein-model}
+\end{figure}

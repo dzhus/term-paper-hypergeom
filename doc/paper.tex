@@ -20,25 +20,12 @@
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
 \newcommand{\krist}[3]{\Gamma^{\phantom{#1 #2}#3}_{#1 #2}}
-\newcommand{\neword}[1]{\emph{#1}}
+\newcommand{\neword}[1]{\textbf{#1}}
 \newcommand{\scalmult}[2]{{\left \langle #1 \right \rangle}_{#2}}
 \DeclareMathOperator{\arcsh}{arcsh}
 
 \providecommand{\arc}[1]{\wideparen{#1}}
 \providecommand{\abs}[1]{\left \lvert{#1}\right \rvert}
-
-% \newcommand{\includefigure}[3]{\begin{figure}[hb]
-%     \centering
-%     \includegraphics{#1}
-%     \caption{#2}
-%     \label{#3}
-%   \end{figure}}
-
-% \usepackage{graphics}
-
-% \DeclareGraphicsExtensions{.mps,.pdf,.eps}
-% \DeclareGraphicsRule{*}{mps}{*}{}
-% %\DeclareGraphicsRule{.scm-all-plots.mps}{mps}{*}{}
 
 \begin{document}
 
@@ -263,10 +250,13 @@ $a$, увеличиваясь при $R \to \infty$.
 Для построения псевдоевклидовой метрики достаточно рассмотреть обычное
 евклидово пространство $\mathbb{R}^n$ и задать в каждой его точке
 билинейную форму с постоянными коэффициентами вида
-$\scalmult{\vec{\xi}, \vec{\eta}}{s} = -\sum_{i=1}^s {\xi^i \eta^i} +
-\sum_{j=s+1}^n {\xi^j \eta^j}$. Соответственно, длина дуги в этом
-\neword{псевдоевклидовом пространстве} $\mathbb{R}^n_s$ выражается по
-формуле
+\begin{equation*}
+  \scalmult{\vec{\xi}, \vec{\eta}}{s} = -\sum_{i=1}^s {\xi^i \eta^i} +
+\sum_{j=s+1}^n {\xi^j \eta^j}
+\end{equation*}
+
+Соответственно, длина дуги в этом \neword{псевдоевклидовом
+  пространстве} $\mathbb{R}^n_s$ выражается по формуле
 
 \begin{equation*}
   l(\gamma)^a_b = \int \limits^a_b {\sqrt{-\sum_{i=1}^s{\left
@@ -306,18 +296,18 @@ y^2 + z^2$. Изучим некоторые свойства его внутре
   z^2\right \}$ точку $O=(0, 0, 0)$, а северным и южным полюсами — точки
 $N=(-\alpha, 0, 0)$ и $S=(\alpha, 0, 0)$ соответственно.
 
-\begin{figure}[hb]
+\begin{figure}[!hb]
   \centering
   \begin{tikzpicture}[dot/.style={circle,fill=black,scale=0.5}]
     \coordinate [label=above left:$O$] (O) at (0, 0);
     \coordinate [label=right:$z$] (z) at (0, 3cm);
     \coordinate [label=below right:$y$] (y) at (-150:3cm);
     \coordinate [label=below:$x$] (x) at (5cm,0);
-
+    
     \draw [->] (O) -- (x);
     \draw [->] (O) -- (y);
     \draw [->] (O) -- (z);
-
+    
     \foreach \p in {O} \node[dot] at (\p){};
   \end{tikzpicture}
   \caption{Сфера $S^2_1$ мнимого радиуса, смоделированная в $\mathbb{R}^3$}
@@ -340,7 +330,6 @@ $N=(-\alpha, 0, 0)$ и $S=(\alpha, 0, 0)$ соответственно.
 {}_+S^2_1 \to D^2$ соответствует точка $f(P) = (u^1, u^2)$ на
 плоскости проецирования, то их координаты связаны следующим образом
 (см. \cite{fomenko00}):
-
 \begin{equation}\label{eq:hyperboloid-to-plane}
   x = \alpha\frac{\abs{\vec{u}}^2 + \alpha^2}{\alpha^2 -
     \abs{\vec{u}}^2}, \qquad
@@ -379,18 +368,15 @@ $\rho$ — угол с полярной осью $y$, и по аналогии �
 радиус-вектором точки и проекцией этого радиус-вектора на $YOZ$.
 
 После осуществления замены переменных
-
 \begin{equation*}\label{eq:pseudospheric-coords}
   y = \alpha \sh{\theta} \cos{\phi}, \qquad
   z = \alpha \sh{\theta} \sin{\phi}, \qquad
   x = \alpha \ch{\theta}
 \end{equation*}
-
 уравнение сферы запишется в виде $\alpha = \text{const}$. Можно
 получить вид \emph{римановой метрики на сфере} в координатах
 $(u^1, u^2)$ модели Пуанкаре, подставляя формулы
 \eqref{eq:hyperboloid-to-plane} в \eqref{eq:R^3_1-linear-element}:
-
 \begin{equation*}
   -(dx(u^1, u^2))^2 + (dy(u^1, u^2))^2 + (dz(u^1, u^2))^2 =
   4\alpha^4\frac{(du^1)^2 + (du^2)^2}
@@ -399,7 +385,6 @@ $(u^1, u^2)$ модели Пуанкаре, подставляя формулы
 
 Если в модели Пуанкаре при $\alpha=1$ теперь ввести полярные
 координаты $(\rho, \phi)$, линейный элемент представится в виде
-
 \begin{equation*}
   ds^2 = 4\frac{d\rho^2 + \rho^2 d\phi^2}{\left (1 - \rho^2 \right )^2}
 \end{equation*}
@@ -407,7 +392,6 @@ $(u^1, u^2)$ модели Пуанкаре, подставляя формулы
 Наконец, при записи в сферических координатах $(\theta, \phi)$
 (что достигается выполнением преобразованием координат $\rho =
 \cth(\theta/2)$, $\phi=\phi$) метрика приобретёт вид
-
 \begin{equation}\label{eq:S^2_1-linear-element}
   ds^2 = d\theta^2 + \sh^2{\theta}d\phi^2
 \end{equation}
@@ -431,8 +415,8 @@ $(u^1, u^2)$ модели Пуанкаре, подставляя формулы
 
 \subsection{Геодезическая кривизна}
 
-\neword{Геодезическая кривизна} кривой $\gamma$ на поферхности $\Phi$
-в некоторой точке $P$ — кривизна ортогональной проекции $\gamma$ на
+\neword{Геодезической кривизной} кривой $\gamma$ на поверхности $\Phi$
+в некоторой точке $P$ называют кривизна ортогональной проекции $\gamma$ на
 касательную плоскость к $\Phi$, проведённую в точке $\gamma$.
 
 Геодезическая кривизна кривой $\gamma = \gamma(x^1(s), x^2(s))$,
@@ -474,7 +458,6 @@ $(u^1, u^2)$ модели Пуанкаре, подставляя формулы
 
 Дифференциальное уравнение геодезических линий в координатной форме
 имеет вид
-
 \begin{equation}
   \frac{d^2x^K}{ds^2} + \krist{I}{J}{K} \frac{dx^I}{ds}
   \frac{dx^J}{ds} = 0
@@ -483,20 +466,64 @@ $(u^1, u^2)$ модели Пуанкаре, подставляя формулы
 Кроме того, известно, что геодезические линии должны удовлетворять
 соотношению \eqref{eq:lin-elt} определяемому линейным элементом.
 
-В рассматриваемом случае соответствующая система уравнений имеет вид:
+В рассматриваемом случае получаем систему дифференциальных уравнений
+\begin{subnumcases}{}
+  \ddot{\rho} - \ch{\rho}\sh{\rho}\dot{\phi} = 0 \\
+  \ddot{\phi} + 2\frac{\ch{\rho}}{\sh{\rho}}\dot{\rho} \dot{\phi} = 0
+  & \label{eq:geo-des-second}\\
+  (\dot{\rho})^2  = 1 - (\dot{\phi})^2 \sh^2{\rho} 
+  & \label{eq:geo-des-third}
+\end{subnumcases}
 
-%\begin{equation}\label{eq:geodesic-diff-eq}
-  \begin{subnumcases}{}
-    \frac{d^2\rho}{ds^2} -
-    \ch{\rho}\sh{\rho}\frac{d\phi}{ds}\frac{d\phi}{ds} = 0 \\
-    \frac{d^2\phi}{ds^2} +
-    2\frac{\ch{\rho}}{\sh{\rho}}\frac{d\rho}{ds}\frac{d\phi}{ds} = 0
-    & \label{eq:geo-des-second}\\
-    {\frac{d\rho}{ds}}^2+\sh^2{\rho} {\frac{d\phi}{ds}}^2 = 1 & \label{eq:geo-des-third}
-  \end{subnumcases}
-%\end{equation}
+где точками обозначены производные соответствующих порядков по длине
+дуги $s$, а \eqref{eq:geo-des-third} получено из \eqref{eq:lin-elt}.
+
+Решим эту систему, получив уравнение геодезических линий.
+
+Из \eqref{eq:geo-des-second} получим:
+\begin{align*}
+  \frac{\ddot{\phi}}{\dot{\phi}} =& -2 \frac{\ch \rho}{\sh \rho}\dot{\rho} \\
+  \left( \ln{\dot{\phi}} \right )^{\prime} =& -2 \left( \ln (\sh \rho) \right)^{\prime} \\
+  \ln{\dot{\phi}} =& -2 \ln (\sh \rho) + C \\
+  \dot{\phi} =& \frac{C_1}{\sh^2\rho}\\
+  (\dot{\phi})^2 =& \frac{C_1^2}{\sh^4\rho}
+\end{align*}
+
+Разделим \eqref{eq:geo-des-third} на полученное выражение для $(\dot{\phi})^2$:
+\begin{align*}
+\left ( \frac{d\rho}{d\phi} \right )^2 =& \frac{\sh^4\rho}{C_1^2} + \sh^2\rho \\
+\frac{d\rho}{d\phi} =& \sqrt{\frac{\sh^4\rho}{C_1^2}-\sh^2\rho} =
+\sh^2\rho \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}} \\
+\frac{d\phi}{d\rho} =& \frac{1}{\sh^2\rho \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}}} \\
+\end{align*}
+
+Теперь можно определить характер зависимости $\phi(\rho)$:
+\begin{equation}\label{eq:geo-function}
+  \begin{split}
+    \phi(\rho) =& \int \frac{d\rho}{\sh^2\rho
+      \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}}} =
+    -\int\frac{d(\cth\rho)}{\sqrt{\left(1 + \frac{1}{C_1^2} \right)-\cth^2 \rho}} = \\
+    =& -\arcsin\left(\frac{\cth\rho}{\pm\sqrt{1 + \frac{1}{C_1^2}}}\right) + C_2 =
+    -\arcsin\left(\frac{\cth\rho}{\widetilde{C}_1}\right) + C_2
+  \end{split}
+\end{equation}
+
+где $\widetilde{C}_1 = \pm\sqrt{1+1/C_1^2}$, так что
+$\lvert\widetilde{C}_1\rvert>1$. При выводе \eqref{eq:geo-function}
+использовалось соотношение $\cth^2\rho = \frac{\ch^2\rho}{\sh^2\rho} =
+1+\frac{1}{\sh^2\rho}$.
+
+Запишем уравнение геодезических линий в параметрическом виде:
+
+\begin{equation}
+  \begin{cases}
+    \rho(t) = t \\
+    \phi(t) = -\arcsin\frac{\cth t}{\widetilde{C}_1} + C_2
+  \end{cases}
+\end{equation}
 
 \clearpage
+
 \section{Спираль Архимеда}
 
 По определению, в полярных координатах $(\rho, \phi)$ спираль Архимеда
@@ -519,11 +546,10 @@ $\gamma_\alpha$ задаётся уравнением $\rho = \phi$, котор�
 \begin{equation}\label{eq:arch-length}
   \begin{split}
     l(\gamma_\alpha)^{\phi_2}_{\phi_1} =
-%    \int \limits^{\gamma_\alpha(\phi_2)}_{\gamma_\alpha(\phi_1)}{ds} &=
     \int \limits_{\arc{AB}}{ds} &=
-    \int \limits_{\arc{AB}}{\sqrt{d\rho^2+\sh^2{\rho}\,d\phi^2}} =\\
-    &=\int \limits^{\phi_2}_{\phi_1}{\sqrt{\left ( 1 + \sh^2{\phi} \right )}}\,d\phi =
-    \int \limits^{\phi_2}_{\phi_1}\abs{\ch{\phi}\,d\phi} =
+    \int \limits_{\arc{AB}}{\sqrt{d\rho^2+\sh^2\rho\,d\phi^2}} =\\
+    &=\int \limits^{\phi_2}_{\phi_1}{\sqrt{\left ( 1 + \sh^2\phi \right )}}\,d\phi =
+    \int \limits^{\phi_2}_{\phi_1}\abs{\ch\phi\,d\phi} =
     \abs{\sh{\phi_2} - \sh{\phi_1}}
   \end{split}
 \end{equation}
@@ -564,13 +590,13 @@ $\gamma_\alpha$ задаётся уравнением $\rho = \phi$, котор�
     k_g =& \sh{\rho} \abs{\krist{1}{2}{2} \dot{\rho} \dot{\phi} +
       \krist{2}{1}{2} \dot{\phi} \dot{\rho} - \krist{2}{2}{1} \dot{\phi}
       \dot {\phi}}= \\
-    =& \sh{\rho} \abs{\frac{\ch{\rho}}{\sh{\rho}} +
-      \frac{\ch{\rho}}{\sh{\rho}} + \ch{\rho}\sh{\rho}} \frac{1}{s^2+1} = \\
-    =& \frac{2\ch{\rho} + \ch{\rho} \sh^2{\rho}}{s^2+1}
-    = \frac{(2+\sh^2{\rho})\ch{\rho}}{s^2+1} = \\
-    =& \frac{\ch{\rho} + \ch^3{\rho}}{s^2+1} =
-    \frac{(\ch{\rho}+\ch^3{\rho})}{\ch^2{\rho}} = \\
-    =& \frac{1 + \ch^2{\rho}}{\ch{\rho}}
+    =& \sh\rho \abs{\frac{\ch\rho}{\sh\rho} +
+      \frac{\ch\rho}{\sh\rho} + \ch\rho \sh\rho} \frac{1}{s^2+1} = \\
+    =& \frac{2\ch\rho + \ch\rho \sh^2\rho}{s^2+1}
+    = \frac{(2+\sh^2\rho)\ch\rho}{s^2+1} = \\
+    =& \frac{\ch\rho + \ch^3\rho}{s^2+1} =
+    \frac{(\ch\rho+\ch^3\rho)}{\ch^2\rho} = \\
+    =& \frac{1 + \ch^2\rho}{\ch\rho}
   \end{split}
 \end{equation}
 

@@ -12,7 +12,7 @@
 
 % TikZ
 \usepackage{tikz}
-\usetikzlibrary{calc,through,positioning}
+\usetikzlibrary{calc,through,positioning,patterns}
 \tikzset{dot/.style={circle,fill=black,scale=0.5}}
 
 \numberwithin{equation}{section}
@@ -38,6 +38,7 @@
 
 \clearpage
 \tableofcontents
+\listoffigures
 
 \clearpage
 
@@ -415,8 +416,11 @@ $(u^1, u^2)$ модели Пуанкаре, подставляя формулы
 \subsection{Геодезическая кривизна}
 
 \neword{Геодезической кривизной} кривой $\gamma$ на поверхности $\Phi$
-в некоторой точке $P$ называют кривизна ортогональной проекции $\gamma$ на
-касательную плоскость к $\Phi$, проведённую в точке $\gamma$.
+в некоторой точке $P$ называют кривизна ортогональной проекции
+$\gamma$ на касательную плоскость к $\Phi$, проведённую в точке
+$\gamma$ (рис. \ref{fig:geodesic-curvature}).
+
+\input{geodesic-curvature.tkz}
 
 Геодезическая кривизна кривой $\gamma = \gamma(x^1(s), x^2(s))$,
 параметризованной естественно ($s$ — длина дуги) во всякой точке может

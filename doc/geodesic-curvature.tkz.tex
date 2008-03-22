@@ -1,0 +1,49 @@
+\begin{figure}[!thb]
+  \centering
+  \begin{tikzpicture}
+    % surface
+    \draw (0,-1) to[out=25,in=150] (4,-1.5)
+                 to[out=90,in=215] (6, 2.5)
+                 to[out=140,in=20] (2, 3)
+                 to[out=215,in=90] (0,-1);
+
+
+    % tangent point
+    \coordinate [] (M) at (2.7,1) {};
+    
+    % curve and its projection of onto plane (hatched path)
+    \draw[pattern=vertical lines] (1,-.5) node[right] {$\gamma$} to[out=75,in=190] (M)
+                  to[out=5,in=220] (4.7,1.5)
+                  -- (4.7,2)
+                  to[out=240,in=10] (M)
+                  to[out=190,in=75] node[above] {$\gamma_\pi$}
+                  (1,.2) -- cycle;
+         
+    % tangent plane
+    \draw[fill=white,fill opacity=.5] (-.5,-.2)
+                                    --(5,-.2)
+                                    --(6,2.2)
+                                    --(0.5,2.2)
+                                    --cycle;
+    \draw[pattern=north east lines,pattern color=gray,
+          opacity=.5] (-.5,-.2)
+                      --(5,-.2)
+                      --(6,2.2)
+                      --(0.5,2.2)
+                      --cycle;
+
+    % surface and plane labels                      
+    \node[above left] at (5, -.2) {$\pi$};                      
+    \node[below right] at (2, 3) {$\Phi$};
+
+    % projection (again)
+    \draw (4.7,2) to[out=240,in=10] (M)
+                  to[out=190,in=75] node[above] {$\gamma_\pi$}
+                  (1,.2);
+                  
+    \foreach \p in {M} \draw node[dot,label=below:$\p$] at (\p) {};
+  \end{tikzpicture}
+  \caption{Кривая $\gamma$ на плоскости $\Phi$ и её проекция
+    $\gamma_\pi$ на касательную в точке $M$ плоскость $\pi$}
+  \label{fig:geodesic-curvature}
+\end{figure}

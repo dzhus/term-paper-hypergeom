@@ -8,17 +8,20 @@ ifneq (${MAKELEVEL}, 0)
 
 .SECONDEXPANSION:
 
-*.tkz:
+*.tkz: %.tkz.tex
+
+klein-arch-path.tex: ${SRCDIR}/klein-arch-spiral.scm
+	guile $< > $@
 
 ${DOCNAME}.aux: ${INCLUDES} ${FIGS} ${DOCNAME}.tex ${DOCNAME}.bib
-	pdflatex ${DOCNAME}
+	pdflatex --shell-escape ${DOCNAME}
 	bibtex8 -B ${DOCNAME}
 
 ${DOCNAME}.pdf: ${DOCNAME}.aux
-	pdflatex ${DOCNAME}
-	pdflatex ${DOCNAME}
+	pdflatex --shell-escape ${DOCNAME}
+	pdflatex --shell-escape ${DOCNAME}
 
-${DOCNAME}-deps.mk: ${DOCNAME}.tex
+${DOCNAME}-deps.mk: ${DOCNAME}.tex ${INCLUDES}
 	texdepend -o $@ -print=if $<
 
 doc: ${DOCNAME}.pdf

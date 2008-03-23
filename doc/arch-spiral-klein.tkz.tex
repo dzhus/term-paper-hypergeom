@@ -1,0 +1,13 @@
+\begin{figure}[!thb]
+  \centering
+  \begin{tikzpicture}[scale=3]
+    \coordinate [label=left:$O$] (O) at (0, 0) {};
+    % Klein disk itself
+    \draw[thick] (O) circle(1);
+    
+    % Klein Archimedes spiral
+    \draw (O) node[dot]{} plot[parametric,samples=200,domain=0:12.56,id=exp] function{cos(t)*(1-2/(exp(2*t)+1)),sin(t)*(1-2/(exp(2*t)+1))};
+  \end{tikzpicture}
+  \caption{Спираль Архимеда $\rho_k(\phi)=\phi$ в модели Клейна}
+  \label{fig:arch-spiral-klein}
+\end{figure}

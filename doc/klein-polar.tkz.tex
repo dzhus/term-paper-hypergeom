@@ -1,0 +1,24 @@
+\begin{figure}[hb]
+  \centering
+  \begin{tikzpicture}[scale=0.7]
+    \coordinate [label=left:$O$] (O) at (0, 0) {};
+    \coordinate [label=above right:$X$] (X) at (40:3) {};
+    \coordinate [label=below left:$Y$] (Y) at (220:3) {};
+    \coordinate [label=above left:$P$] (P) at (40:2) {};
+
+    % Klein disk itself
+    \node [draw,thick,circle through=(X)] (circle) at (O) {};
+
+    % chord
+    \draw (X) -- (Y);
+    \draw (O) -- (0:3);
+    \node[right] at ($ (O)!.5!(P) $) {$\rho_e$};
+    \draw[shorten >=2pt,->] (0:2) arc (0:40:2);
+    \node at ($ (O)+(20:2.2) $) {$\phi$};
+
+    \foreach \p in {O, X, Y, P} \draw node[dot] at (\p) {};
+  \end{tikzpicture}
+  \caption{Евклидовы полярные координаты $(\rho_e, \phi)$, наложенные
+    на модель Клейна в круге единичного радиуса}
+  \label{fig:klein-polar}
+\end{figure}

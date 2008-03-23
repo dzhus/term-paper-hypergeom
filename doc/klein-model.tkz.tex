@@ -1,7 +1,7 @@
 \begin{figure}[thb]
   \centering
   \begin{tikzpicture}[]
-    \coordinate [label=below left:$O$] (O) at (0, 0) {};
+    \coordinate [] (O) at (0, 0) {};
     \coordinate [label=above right:$X$] (X) at (60:3) {};
     \coordinate [label=below left:$Y$] (Y) at (200:3) {};
     \coordinate [label=above:$A$] (A) at ($ (Y)!.2!(X)$) {};
@@ -29,7 +29,7 @@
     \end{scope}
 
     %dot marks
-    \foreach \p in {O, X, Y, A, B, P, M, N} \draw node[dot] at (\p) {};
+    \foreach \p in {X, Y, A, B, P, M, N} \draw node[dot] at (\p) {};
   \end{tikzpicture}
   \caption{Модель Клейна в круге}
   \label{fig:klein-model}

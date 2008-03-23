@@ -10,9 +10,6 @@ ifneq (${MAKELEVEL}, 0)
 
 *.tkz: %.tkz.tex
 
-klein-arch-path.tex: ${SRCDIR}/klein-arch-spiral.scm
-	guile $< > $@
-
 ${DOCNAME}.aux: ${INCLUDES} ${FIGS} ${DOCNAME}.tex ${DOCNAME}.bib
 	pdflatex --shell-escape ${DOCNAME}
 	bibtex8 -B ${DOCNAME}

@@ -1,4 +1,4 @@
-\begin{figure}[hb]
+\begin{figure}[thb]
   \centering
   \begin{tikzpicture}[scale=0.7]
     \coordinate [label=left:$O$] (O) at (0, 0) {};
@@ -12,10 +12,13 @@
     % chord
     \draw (X) -- (Y);
     \draw (O) -- (0:3);
+
+    % coordinates
     \node[right] at ($ (O)!.5!(P) $) {$\rho_e$};
     \draw[shorten >=2pt,->] (0:2) arc (0:40:2);
     \node at ($ (O)+(20:2.2) $) {$\phi$};
 
+    % dot marks
     \foreach \p in {O, X, Y, P} \draw node[dot] at (\p) {};
   \end{tikzpicture}
   \caption{Евклидовы полярные координаты $(\rho_e, \phi)$, наложенные

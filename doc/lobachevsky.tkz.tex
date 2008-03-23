@@ -1,19 +1,25 @@
-\begin{figure}[!thb]
+\begin{figure}[thb]
   \centering
   \begin{tikzpicture}[scale=0.7]
+    % triangle vertices
     \coordinate [label=below left:$P$] (P) at (0, 0);
     \coordinate [label=left:$Q$] (Q) at (0, 1.2cm);
     \coordinate [label=below:$R$] (R) at (6cm, 0) {};
+
     \draw (P) -- ($ (R) + .5*(2+rand, 0) $);
-    
+
+    % angle labels
     \node at ($ (P)!.5!(Q) $) [left] {$a$};
     \node at ($ (Q) + (-50:0.5cm) $){$\theta$};
 
+    % hypotenuse and angle arc
     \begin{scope}
       \draw[clip] (P) -- node[left]{$a$} (Q) .. controls ($ (P)!.5!(R) $)
       and ($ (P)!.9!(R) $) .. (R);
       \draw (Q) circle(0.3cm);
     \end{scope}
+
+    % dot marks
     \foreach \p in {P, Q, R} \draw node[dot] at (\p) {};
   \end{tikzpicture}
   \caption{Предположение Лобачевского: $\theta = F(a)$}

@@ -5,11 +5,23 @@
     
     % Klein disk itself
     \draw[thick] (O) circle(1);
-    
-    % Klein Archimedes spiral
-    \draw (O) node[dot]{} plot[parametric,samples=200,domain=0:12.56,id=exp,smooth]
-          function{cos(t)*(1-2/(exp(2*t)+1)),sin(t)*(1-2/(exp(2*t)+1))};
 
+    \begin{scope}[decoration={
+        markings,% switch on markings
+        mark=% actually add a mark
+        at position .07
+        with \coordinate[] (P){};}]
+
+      % Klein Archimedes spiral
+      \draw[postaction={decorate}] (O) plot[parametric,samples=200,domain=0:12.56,id=exp,smooth]
+                function{cos(t)*(1-2/(exp(2*t)+1)),sin(t)*(1-2/(exp(2*t)+1))};
+
+    \end{scope}    
+    
+    \draw[very thin,draw=gray]-- node[sloped,above]{$\rho_k=\phi$} (P);
+    
+    % dot marks
+    \foreach \p in {P,O} \draw node[dot] at (\p) {};
   \end{tikzpicture}
   \caption{Спираль Архимеда $\rho_k(\phi)=\phi$ в модели Клейна}
   \label{fig:arch-spiral-klein}

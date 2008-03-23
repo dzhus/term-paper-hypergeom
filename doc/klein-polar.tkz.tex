@@ -1,6 +1,6 @@
 \begin{figure}[thb]
   \centering
-  \begin{tikzpicture}[scale=0.7]
+  \begin{tikzpicture}[scale=1]
     \coordinate [label=left:$O$] (O) at (0, 0) {};
     \coordinate [label=above right:$X$] (X) at (40:3) {};
     \coordinate [label=below left:$Y$] (Y) at (220:3) {};
@@ -14,8 +14,8 @@
     \draw (O) -- (0:3);
 
     % coordinates
-    \node[right] at ($ (O)!.5!(P) $) {$\rho_e$};
-    \draw[shorten >=2pt,->] (0:2) arc (0:40:2);
+    \path (O)-- node[above,sloped,pos=0.5] {$\rho_e$} (P);
+    \draw[very thin,draw=gray] (0:2) arc (0:40:2);
     \node at ($ (O)+(20:2.2) $) {$\phi$};
 
     % dot marks

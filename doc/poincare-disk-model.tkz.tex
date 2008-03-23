@@ -1,0 +1,26 @@
+\begin{figure}[thb]
+  \centering
+  \begin{tikzpicture}[scale=2]
+    \coordinate [] (O) at (0, 0) {};
+    \coordinate [label=above right:$X$] (X) at (55:1) {};
+    \coordinate [label=below left:$Y$] (Y) at (200:1) {};
+    \coordinate (M) at (330:1);
+    \coordinate (N) at (290:1);
+
+    % disk model
+    \node [draw,thick,circle through=(X)] (circle) at (O) {};
+
+    % lines
+    \draw (X) to[out=235,in=20] node[pos=0.5,label=above:$l$]{} (Y);
+    \draw (Y) to[out=20,in=150] (M);
+    \draw (X) to[out=235,in=110] (N);
+
+    
+    % a bundle of parallel lines
+   
+    %dot marks
+    \foreach \p in {X, Y} \draw node[dot] at (\p) {};
+  \end{tikzpicture}
+  \caption{Модель Пуанкаре в круге}
+  \label{fig:poincare-disk-model}
+\end{figure}

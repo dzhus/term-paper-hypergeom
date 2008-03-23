@@ -1,39 +1,43 @@
 \begin{figure}[thb]
   \centering
-  \begin{tikzpicture}[dot/.style={circle,fill=black,scale=0.5}]
+  \begin{tikzpicture}[scale=1]
     \coordinate [label=below left:$O$] (O) at (0, 0);
-    \coordinate [label=right:$z$] (z) at (0,2.5);
-    \coordinate [label=below:$x$] (x) at (5,0);
-    \coordinate [label=below left:$N$] (N) at ($ (O)!-.2!(x) $);
-    \coordinate [label=below right:$S$] (S) at ($ (O)!.2!(x) $);
+    \coordinate [label=right:$z$] (z) at (0,4);
+    \coordinate [label=below:$x$] (x) at (4,0);
+
+    % poles
+    \coordinate [label=below left:$N$] (N) at ($ (O)!-.5!(x) $);
+    \coordinate [label=below right:$S$] (S) at ($ (O)!.5!(x) $);
     
     % axis
-    \draw [->,color=gray,very thin] ($ (O)!5!(N) $) -- (O) -- (x);
+    \draw [->,color=gray,very thin] ($ (O)!-1!(x) $) -- (O) -- (x);
     \draw [->,color=gray,very thin] ($ (O)!-1!(z) $) -- (O) -- (z);
 
     % projection disk
-    \coordinate (M) at ($ (O)!.4!(z) $) {};
-    \coordinate [label=right:$D^2$] (L) at ($ (O)!-.4!(z) $) {};
+    \coordinate (M) at ($ (O)!.5!(z) $) {};
+    \coordinate [label=right:$D^2$] (L) at ($ (O)!-.5!(z) $) {};
     \draw [ultra thick] (L)--(M);
 
     % hyperbola
-    \path[draw] (S) plot[domain=-1.5:1.5,very thick]
-    ({(exp(\x)+exp(-\x))/2}, {(exp(\x)-(exp(-\x)))/2});
-    \path[draw] (N) plot[domain=-1.5:1.5,very thick]
-    ({(-exp(\x)-exp(-\x))/2}, {(-exp(\x)+(exp(-\x)))/2});
-
+    % right branch
+    \path[draw] (S) plot[domain=-1:1,very thick]
+                    ({(exp(\x)+exp(-\x))}, {(exp(\x)-(exp(-\x)))});
+    % left branch
+    \path[draw] (N) plot[domain=-1:1,very thick]
+                    ({(-exp(\x)-exp(-\x))}, {(-exp(\x)+(exp(-\x)))});
     % a point on hyperbola
-    \coordinate [label=below right:$P$] (P) at ({(exp(.7)+exp(-.7))/2},{(exp(.7)-(exp(-.7)))/2}) {};
+    \coordinate[label=above left:$P$] (P) at ({(exp(.7)+exp(-.7))}, {(exp(.7)-(exp(-.7)))});
 
     % projection
     \draw (P) -- (N);
-    \coordinate [label=above left:$\psi(P)$] (Pp) at (intersection of
-    P--N and M--L) {};
+    \coordinate [label=above left:$\psi(P)$] (Pp)
+                at (intersection of P--N and M--L) {};
 
     % dot marks
     \foreach \p in {O,N,S,P,Pp} \node[dot] at (\p){};
   \end{tikzpicture}
   \caption{Стереографическая проекция псевдосферы $S^2_1$ мнимого
-    радиуса, смоделированной в $\mathbb{R}^3$, на плоскость $YOZ$}
+    радиуса, смоделированной в $\mathbb{R}^3$, на плоскость $YOZ$
+    (сечение $XOZ$)}
   \label{fig:pseudosphere-projection}
 \end{figure}

@@ -1,0 +1,57 @@
+\begin{figure}[!hbt]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    \coordinate (O) at (0, 0) {};
+    \coordinate  (P) at (-1.2,-.2) {};
+    \coordinate (Ps) at (-1.2,-1.2) {};
+    \coordinate [label=above:$N$] (N) at (0, 2) {};
+    \coordinate (S) at (0, -2) {};
+
+    % disk control points
+    \coordinate [] (L) at ($ (O)-(2,0) $) {};
+    \coordinate [] (R) at ($ (O)+(2,0) $) {};
+
+    % Projection lines
+    \draw (P)--(Ps);
+    \coordinate (Pp)
+                at (intersection of Ps--N and O--P);                
+    \draw (Ps)--(Pp);
+
+ 
+    % fade lower hemisphere                 
+    \path [fill=white, opacity=.5]
+                (L) to[out=270,in=180] (S)
+                    to[out=0,in=270] (R)
+                    (O) ellipse(2 and 1);
+
+     % Klein disk
+    \draw [opacity=.3, pattern=north east lines]
+               (O) ellipse(2 and 1);
+    \draw [thick] (O) ellipse(2 and 1);
+
+    % chord
+    \coordinate [dot,label=below:$X$] (X) at (-1.8,0.4358) {};
+    \coordinate [dot,label=below:$Y$] (Y) at (-0.464,-0.97) {};
+    \draw[thick] (X)--(Y);
+    \draw[thick] (X) to[out=-15,in=140] (Pp)
+                     to[out=320,in=60] (Y);
+                    
+    % Visible projection lines
+    \draw (Pp)--(N);
+    \draw (P)--(O);
+
+    % Sphere
+    \draw[thick] (O) circle(2);
+
+    % labels placed last
+    \node [label=above right:$O$] at (O){};
+    \node [label=left:$P$] at (P){};
+    \node [label=above right:$P^\prime$] at (Pp){};
+    \node [label=left:$P_s$] at (Ps){};
+    
+    % dot marks
+    \foreach \p in {O,P,Ps,Pp,N} \draw node[dot] at (\p) {};
+  \end{tikzpicture}
+  \caption{Связь моделей Клейна и Пуанкаре: $\xi: P \to P^\prime$}
+  \label{fig:klein-to-poincare}
+\end{figure}

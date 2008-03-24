@@ -1,0 +1,24 @@
+\begin{figure}[!h]
+  \centering
+  \begin{tikzpicture}[scale=2.5]
+    \coordinate [label=below:$O$] (O) at (0, 0) {};
+    \coordinate [label=above right:$Y$] (Y) at (55:1) {};
+    \coordinate [label=below left:$X$] (X) at (160:1) {};
+    \coordinate [label=right:$Z$] (Z) at (340:1) {};
+
+    % disk model
+    \node [draw,thick,circle through=(X)] (circle) at (O) {};
+
+    % lines
+    \draw (Y) to[out=235,in=-20] node[pos=0.5,label=above:$l$]{} (X)
+       coordinate[pos=0.7,label=above:$B$](B){}
+       coordinate[pos=0.3,label=above:$A$](A){};
+    \draw (X)-- (Z) node[pos=0.3,label=below:$m$]{}
+                    coordinate[pos=0.75,label=below:$P$](P){};
+   
+    %dot marks
+    \foreach \p in {X, Y, Z, A, B, P, O} \draw node[dot] at (\p) {};
+  \end{tikzpicture}
+  \caption{Прямые и точки в модели Пуанкаре: $l \parallel m$}
+  \label{fig:poincare-disk-model-2}
+\end{figure}

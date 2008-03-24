@@ -8,20 +8,20 @@
 
     \begin{scope}[decoration={
         markings,
-        mark=at position .07
+        mark=at position .12
         with \coordinate[] (P){};}]
 
-      % Klein Archimedes spiral
+      % Poincare Archimedes spiral
       \draw[postaction={decorate}] (O) plot[parametric,samples=100,domain=0:12.56,id=exp,smooth]
-                function{cos(t)*(1-2/(exp(2*t)+1)),sin(t)*(1-2/(exp(2*t)+1))};
+                function{cos(t)*(1-2/(exp(t)+1)),sin(t)*(1-2/(exp(t)+1))};
 
     \end{scope}    
     
-    \path[very thin,draw=gray] (O)-- node[sloped,above]{$\rho_k=\phi$} (P);
+    \path[very thin,draw=gray] (O)-- node[sloped,above]{$\rho_p=\phi$} (P);
     
     % dot marks
     \foreach \p in {P,O} \draw node[dot] at (\p) {};
   \end{tikzpicture}
-  \caption{Спираль Архимеда $\rho_k(\phi)=\phi$ в модели Клейна}
-  \label{fig:arch-spiral-klein}
+  \caption{Спираль Архимеда $\rho_p(\phi)=\phi$ в модели Пуанкаре}
+  \label{fig:arch-spiral-poincare}
 \end{figure}

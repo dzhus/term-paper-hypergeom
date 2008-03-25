@@ -1,22 +1,22 @@
 \begin{figure}[thb]
   \centering
-  \begin{tikzpicture}[scale=1]
+  \begin{tikzpicture}[scale=2]
     \coordinate [label=left:$O$] (O) at (0, 0) {};
-    \coordinate [label=above right:$X$] (X) at (40:3) {};
-    \coordinate [label=below left:$Y$] (Y) at (220:3) {};
-    \coordinate [label=above left:$P$] (P) at (40:2) {};
+    \coordinate [label=above right:$X$] (X) at (40:1) {};
+    \coordinate [label=below left:$Y$] (Y) at (220:1) {};
+    \coordinate [label=above left:$P$] (P) at (40:0.7) {};
 
     % Klein disk itself
     \node [draw,thick,circle through=(X)] (circle) at (O) {};
 
     % chord
     \draw (X) -- (Y);
-    \draw (O) -- (0:3);
+    \draw (O) -- (0:1);
 
     % coordinates
     \path (O)-- node[above,sloped,pos=0.5] {$\rho_e,\, \rho_k$} (P);
-    \draw[very thin,draw=gray] (0:2) arc (0:40:2);
-    \node at ($ (O)+(20:2.2) $) {$\phi$};
+    \draw[very thin,draw=gray] (0:.7) arc (0:40:.7);
+    \node at ($ (O)+(20:0.9) $) {$\phi$};
 
     % dot marks
     \foreach \p in {O, X, Y, P} \draw node[dot] at (\p) {};

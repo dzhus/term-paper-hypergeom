@@ -1,4 +1,4 @@
-\begin{figure}[!hbt]
+\begin{figure}[hbt]
   \centering
   \begin{tikzpicture}[scale=1.5]
     \coordinate (O) at (0, 0) {};
@@ -47,10 +47,11 @@
     \node [label=above right:$O$] at (O){};
     \node [label=left:$P$] at (P){};
     \node [label=above right:$P^\prime$] at (Pp){};
-    \node [label=left:$P_s$] at (Ps){};
+    \node [label=right:$P_s$] at (Ps){};
     
     % dot marks
-    \foreach \p in {O,P,Ps,Pp,N} \draw node[dot] at (\p) {};
+    \foreach \p in {O,P,Pp,N} \draw node[dot] at (\p) {};
+    \node[dot,color=gray] at (Ps) {};
   \end{tikzpicture}
   \caption{Связь моделей Клейна и Пуанкаре: $\xi: P \to P^\prime$}
   \label{fig:klein-to-poincare}

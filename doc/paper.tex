@@ -19,9 +19,11 @@
 
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
+\providecommand{\const}{\mathrm{const}}
 \newcommand{\krist}[3]{\Gamma^{\phantom{#1 #2}#3}_{#1 #2}}
 \newcommand{\neword}[1]{\textbf{#1}}
 \newcommand{\scalmult}[2]{{\left \langle #1 \right \rangle}_{#2}}
+%\renewcommand{\iff}{\Leftrightarrow}
 \DeclareMathOperator{\arcsh}{arcsh}
 
 \providecommand{\arc}[1]{\wideparen{#1}}
@@ -480,47 +482,79 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
 
 Решим эту систему, получив уравнение геодезических линий.
 
-Из \eqref{eq:geo-des-second} получим:
-\begin{equation*}
-  \begin{split}
-    \frac{\ddot{\phi}}{\dot{\phi}} =& -2 \frac{\ch \rho}{\sh \rho}\dot{\rho} \\
-    \left( \ln{\dot{\phi}} \right )^{\prime} =& -2 \left( \ln (\sh \rho) \right)^{\prime} \\
-    \ln{\dot{\phi}} =& -2 \ln (\sh \rho) + C \\
-    \dot{\phi} =& \frac{C_1}{\sh^2\rho}\\
-    (\dot{\phi})^2 =& \frac{C_1^2}{\sh^4\rho}
-  \end{split}
-\end{equation*}
+Рассмотрим два случая.
+\begin{enumerate}
+\item Пусть $\dot{\phi} \neq 0$. Из \eqref{eq:geo-des-second} получим:
+  \begin{equation*}
+    \begin{split}
+      \frac{\ddot{\phi}}{\dot{\phi}} =& -2 \frac{\ch \rho}{\sh \rho}\dot{\rho} \\
+      \left( \ln{\dot{\phi}} \right )^{\prime} =& -2 \left( \ln (\sh \rho) \right)^{\prime} \\
+      \ln{\dot{\phi}} =& -2 \ln (\sh \rho) + C \\
+      \dot{\phi} =& \frac{C_1}{\sh^2\rho}\\
+      (\dot{\phi})^2 =& \frac{C_1^2}{\sh^4\rho}
+    \end{split}
+  \end{equation*}
+  
+  Разделим \eqref{eq:geo-des-third} на полученное выражение для $(\dot{\phi})^2$:
+  \begin{equation*}
+    \begin{split}
+      \left ( \frac{d\rho}{d\phi} \right )^2 =& \frac{\sh^4\rho}{C_1^2} - \sh^2\rho \\
+      \frac{d\rho}{d\phi} =& \sqrt{\frac{\sh^4\rho}{C_1^2}-\sh^2\rho} =
+      \pm \sh^2\rho \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}} \\
+      \frac{d\phi}{d\rho} =& \frac{1}{\pm \sh^2\rho \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}}} \\
+    \end{split}
+  \end{equation*}
+  
+  Теперь можно определить характер зависимости $\phi(\rho)$:
+  \begin{multline}\label{eq:geo-function}
+    \phi(\rho) = \pm \int \frac{d\rho}{\sh^2\rho
+      \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}}} =
+    \mp \int\frac{d(\cth\rho)}{\sqrt{\left(1 + \frac{1}{C_1^2} \right)-\cth^2 \rho}} = \\
+    = \mp \arcsin\left(\frac{\cth\rho}{\pm\sqrt{1 + \frac{1}{C_1^2}}}\right) + C_2 =
+    \mp \arcsin\left(\frac{\cth\rho}{\widetilde{C}_1}\right) + C_2
+  \end{multline}
+  где $\widetilde{C}_1 = \pm\sqrt{1+1/C_1^2}$, так что
+  $\lvert\widetilde{C}_1\rvert>1$. При выводе \eqref{eq:geo-function}
+  использовалось соотношение $\cth^2\rho = {\ch^2\rho}/{\sh^2\rho} =
+  1+{1}/{\sh^2\rho}$.
+  
+\item Пусть теперь $\dot{\phi} = 0 \iff \phi = \hat{C}_1 = \const$. Получаем систему
+  \begin{subnumcases}{}
+    \ddot{\rho} = 0 \\
+    \ddot{\phi} = 0 \\
+    (\dot{\rho})^2  = 1 & \label{eq:geo-des2-third}
+  \end{subnumcases}
 
-Разделим \eqref{eq:geo-des-third} на полученное выражение для $(\dot{\phi})^2$:
-\begin{equation*}
-  \begin{split}
-    \left ( \frac{d\rho}{d\phi} \right )^2 =& \frac{\sh^4\rho}{C_1^2} - \sh^2\rho \\
-    \frac{d\rho}{d\phi} =& \sqrt{\frac{\sh^4\rho}{C_1^2}-\sh^2\rho} =
-    \sh^2\rho \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}} \\
-    \frac{d\phi}{d\rho} =& \frac{1}{\sh^2\rho \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}}} \\
-  \end{split}
-\end{equation*}
+  Из \eqref{eq:geo-des2-third}
+  \begin{equation*}
+    \begin{split}
+      \dot{\rho} =& \pm 1\\
+      \rho =& \pm s + \hat{C}_2
+    \end{split}
+  \end{equation*}
+  
+  Этот случай описывает прямые, проходящие через начало полярной системы
+  координат с постоянным углом $\phi$, при этом знак и постоянная
+  константа $\hat{C}_2$ в выражении для $\rho$ не оказывают влияния на
+  характер таких геодезических.
+\end{enumerate}
 
-Теперь можно определить характер зависимости $\phi(\rho)$:
-\begin{multline}\label{eq:geo-function}
-  \phi(\rho) = \int \frac{d\rho}{\sh^2\rho
-    \sqrt{\frac{1}{C_1^2}-\frac{1}{\sh^2\rho}}} =
-  -\int\frac{d(\cth\rho)}{\sqrt{\left(1 + \frac{1}{C_1^2} \right)-\cth^2 \rho}} = \\
-  = -\arcsin\left(\frac{\cth\rho}{\pm\sqrt{1 + \frac{1}{C_1^2}}}\right) + C_2 =
-  -\arcsin\left(\frac{\cth\rho}{\widetilde{C}_1}\right) + C_2
-\end{multline}
-где $\widetilde{C}_1 = \pm\sqrt{1+1/C_1^2}$, так что
-$\lvert\widetilde{C}_1\rvert>1$. При выводе \eqref{eq:geo-function}
-использовалось соотношение $\cth^2\rho = {\ch^2\rho}/{\sh^2\rho} =
-1+{1}/{\sh^2\rho}$.
-
-Запишем уравнение геодезических линий в параметрическом виде:
+Запишем полученные уравнения геодезических линий в параметрическом
+виде:
+\begin{subequations}
 \begin{equation}
   \begin{cases}
     \rho(t) = t \\
-    \phi(t) = -\arcsin\frac{\cth t}{\widetilde{C}_1} + C_2
+    \phi(t) = \hat{C}_1
   \end{cases}
 \end{equation}
+\begin{equation}
+  \begin{cases}
+    \rho(t) = t \\
+    \phi(t) = \pm \arcsin\frac{\cth t}{\widetilde{C}_1} + C_2
+  \end{cases}
+\end{equation}
+\end{subequations}
 
 \clearpage
 
@@ -601,14 +635,15 @@ $\gamma_\alpha$ задаётся уравнением $\rho = \phi$, котор�
 \eqref{eq:arch-geo-curvature} и соотношения $\ch{\arcsh{s}} =
 \pm\sqrt{1+s^2}$.
 
+\clearpage
 \subsection{Спираль Архимеда в моделях плоскости Лобачевского}
 
 \subsubsection{Спираль Архимеда в модели Клейна}
 \label{sec:arch-spiral-klein}
 
-Рассмотрим модель Клейна (см. раздел \ref{sec:intro}, рисунок
-\ref{fig:klein-model}) в круге единичного радиуса. Обозначим через
-$d_e$ обычную евклидову метрику, а через $d_k$ — метрику
+Рассмотрим модель Клейна (см. раздел \ref{sec:intro},
+рисунок \ref{fig:klein-model}) в круге единичного радиуса. Обозначим
+через $d_e$ обычную евклидову метрику, а через $d_k$ — метрику
 \eqref{eq:projective-metric} в модели Клейна; $d_k$ определяется через
 $d_e$:
 \begin{equation}\label{eq:projective-metric-centered}
@@ -616,11 +651,11 @@ $d_e$:
 \end{equation}
 
 По аналогии рассмотрим системы полярных координат с полюсами в точке
-$O$: $(\rho_e, \phi_e)$, где $\rho_e(P) \equiv d_e(O,P)$
-(рисунок \ref{fig:klein-polar}), а также $(\rho_k, \phi_e)$ с
-$\rho_k(P) \equiv d_k(O, P)$. Отметим, что поскольку полюс выбран в
-центре круга, $\phi_k \equiv \phi_e$ (в модели Клейна угол между
-прямыми, проходящими через $O$, равен обычному евклидовому углу, см.
+$O$ (рисунок \ref{fig:klein-polar}): $(\rho_e, \phi_e)$, где
+$\rho_e(P) \equiv d_e(O,P)$, а также $(\rho_k, \phi_e)$ с $\rho_k(P)
+\equiv d_k(O, P)$. Отметим, что поскольку полюс выбран в центре круга,
+$\phi_k \equiv \phi_e$ (в модели Клейна угол между прямыми,
+проходящими через $O$, равен обычному евклидовому углу, см.
 \cite{zaslavsky04}). В дальнейшем будем обозначать полярный угол как
 $\phi$.
 
@@ -661,22 +696,23 @@ $\rho_k(\phi) = \phi$. Найдём выражение $\rho_e(\phi)$ такой
 
 Видно, что кривая, заданная уравнением \eqref{eq:arch-spiral-klein}, с
 увеличением $\phi$ всё ближе прижимается к границе евклидовой
-единичной окружности $\rho_e=1$, не достигая её (рисунок \ref{fig:arch-spiral-klein}).
+единичной окружности $\rho_e=1$, не достигая её
+(рисунок \ref{fig:arch-spiral-klein}).
 
 Этот предсказуемый результат вновь поясняет смысл модели Клейна: с
 приближением к границе круга меньшие в смысле евклидовой метрики
 расстояния становятся всё большими в смысле метрики
 \eqref{eq:projective-metric-polar}.
 
-Аналогично, конечные в евклидовом пространстве хорды на рисунке
-\ref{fig:klein-model} (см. страницу \pageref{fig:klein-model}) являются
-бесконечными прямыми в модели Клейна с другой метрикой.
+Аналогично, конечные в евклидовом пространстве хорды на
+рисунке \ref{fig:klein-model} (см. страницу \pageref{fig:klein-model})
+являются бесконечными прямыми в модели Клейна с другой метрикой.
 
 \subsubsection{Спираль Архимеда в модели Пуанкаре в единичном круге}
 
 Рассмотрим модель Пуанкаре в единичном круге (см. раздел
-\ref{sec:what-is-up}, рисунок \ref{fig:poincare-disk-model} и рисунок
-\ref{fig:poincare-disk-model-2}) и две системы полярных
+\ref{sec:what-is-up}, рисунок \ref{fig:poincare-disk-model} и
+рисунок \ref{fig:poincare-disk-model-2}) и две системы полярных
 координат в ней — евклидову $(\rho_e, \phi)$ и систему $(\rho_p,
 \phi)$, где $\rho_p$ — внутренняя метрика модели Пуанкаре. Вновь в
 рамках рассматриваемой модели $\rho_e<1$, а угловые координаты обеих
@@ -702,8 +738,7 @@ $P^\prime$ модели Пуанкаре в том же круге. Такая �
 
 Из соображений проективной геометрии (см. \cite{prasolov04}) известно,
 что при отображении $\xi$ метрика преобразуется следующим образом:
-$2d_k(P,Q) = d_k(P^\prime, Q^\prime)$, где $P^\prime=\xi(P),
-Q^\prime=\xi(Q)$.
+$2d_k(P,Q) = d_k(P^\prime, Q^\prime)$, где $P^\prime=\xi(P),\,Q^\prime=\xi(Q)$.
 
 С учётом этого и \eqref{eq:projective-metric-polar}, немедленно получаем
 \begin{equation}\label{eq:poincare-metric-polar}
@@ -730,14 +765,14 @@ $\rho_{e_0}$.
       ds &= 2\frac{d\rho_e}{1-\rho_e^2} \\
     \end{split}
   \end{equation*}
-  \begin{multline}
+  \begin{multline*}
     \rho_p = 2\int_0^{\rho_{e_0}} \frac{d\rho_e}{1-\rho_e^2} =
      2 \frac{1}{2} \left . \left [ \ln(1+\rho_e) - \ln(1-\rho_e)
        \right ] \right \rvert_0^{\rho_{e_0}} = \\
      = \left . \ln{\left( \frac{1+\rho_e}{1-\rho_e} \right)} \right
      \rvert_0^{\rho_{e_0}} =
      \abs{ \ln{\left(\frac{1+\rho_{e_0}}{1-\rho_{e_0}} \right)}}
-  \end{multline}
+  \end{multline*}
 \end{subequations}
 
 Как видно, результат полностью совпадает с
@@ -751,7 +786,7 @@ $\rho_{e_0}$.
 
 \input{arch-spiral-poincare.tkz}
 
-Евклидов образ спирали приведён на рисунке \ref{fig:arch-spiral-poincare}.
+Евклидов образ спирали приведён на рисунке \ref{fig:arch-spiral-poincare}.
 
 \clearpage
 \bibliographystyle{gost780s}

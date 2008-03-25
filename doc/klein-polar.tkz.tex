@@ -14,14 +14,15 @@
     \draw (O) -- (0:3);
 
     % coordinates
-    \path (O)-- node[above,sloped,pos=0.5] {$\rho_e$} (P);
+    \path (O)-- node[above,sloped,pos=0.5] {$\rho_e,\, \rho_k$} (P);
     \draw[very thin,draw=gray] (0:2) arc (0:40:2);
     \node at ($ (O)+(20:2.2) $) {$\phi$};
 
     % dot marks
     \foreach \p in {O, X, Y, P} \draw node[dot] at (\p) {};
   \end{tikzpicture}
-  \caption{Евклидовы полярные координаты $(\rho_e, \phi)$, наложенные
-    на модель Клейна в круге единичного радиуса}
+  \caption{Системы полярных координат $(\rho_e,\phi_e)$ и
+    $(\rho_k,\phi_k)$ в модели Клейна в круге единичного радиуса:
+    $\rho_e \neq \rho_k,\, \phi_k=\phi_e=\phi$}
   \label{fig:klein-polar}
 \end{figure}

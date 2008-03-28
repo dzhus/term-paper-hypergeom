@@ -25,6 +25,7 @@
 \newcommand{\scalmult}[2]{{\left \langle #1 \right \rangle}_{#2}}
 %\renewcommand{\iff}{\Leftrightarrow}
 \DeclareMathOperator{\arcsh}{arcsh}
+\DeclareMathOperator{\arccth}{arccth}
 
 \providecommand{\arc}[1]{\wideparen{#1}}
 \providecommand{\abs}[1]{\left \lvert{#1}\right \rvert}
@@ -519,7 +520,7 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
   1+{1}/{\sh^2\rho}$.
   
 \item Пусть теперь $\dot{\phi} = 0 \iff \phi = \hat{C}_1 = \const$. Получаем систему
-  \begin{subnumcases}{}
+  \begin{subnumcases}{\label{eq:geo-des2}}
     \ddot{\rho} = 0 \\
     \ddot{\phi} = 0 \\
     (\dot{\rho})^2  = 1 & \label{eq:geo-des2-third}
@@ -539,22 +540,93 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
   характер таких геодезических.
 \end{enumerate}
 
-Запишем полученные уравнения геодезических линий в параметрическом
-виде:
-\begin{subequations}
-\begin{equation}
+Подробнее рассмотрим первое полученное семейство геодезических.
+
+Запишем уравнение \eqref{eq:geo-function} в параметрическом виде:
+\begin{equation}\label{eq:geo-function-par}
   \begin{cases}
     \rho(t) = t \\
-    \phi(t) = \hat{C}_1
+    \phi(t) = \pm \arcsin\left(\frac{\cth t}{C_1}\right) + C_2
   \end{cases}
 \end{equation}
-\begin{equation}
-  \begin{cases}
-    \rho(t) = t \\
-    \phi(t) = \pm \arcsin\frac{\cth t}{\widetilde{C}_1} + C_2
-  \end{cases}
-\end{equation}
-\end{subequations}
+
+Арксинус — нечётная функция, а выражение для $\phi(t)$ в этой системе
+имеет знак $\pm$, поэтому константу $C_1$ без потери
+общности можно считать строго положительной.
+
+Определим значения $t$, при которых определены значения $\phi(t)$ в
+\eqref{eq:geo-function-par}. Отметим, что значение $C_2$ не оказывает
+влияние на область определения.
+
+Функция $\arcsin{\left(\frac{\cth{t}}{C_1}\right)}$ определена при
+$\abs{\frac{\cth{t}}{C_1}} \leq 1$. Поскольку \mbox{$\lim_{x \to
+    0}{\cth{x}} = \infty$}, функция $\phi(t)$ в нуле не определена для
+всякого конечного $C_1$ (в таком случае геодезические, описываемые
+уравнением \eqref{eq:geo-function-par}, не проходят через начало
+координат).
+
+Кроме того, из свойств гиперболического котангенса имеем
+\begin{align*}
+  \lim_{t \to +\infty}{\cth{t}} &= 1 + 0 \\
+  \lim_{t \to -\infty}{\cth{t}} &= -1 - 0 \\
+\end{align*}
+
+\input{coth.tkz}
+
+Очевидно,
+\begin{align*}
+  \lim_{t \to +\infty}{\frac{\cth{t}}{C_1}} &= \frac{1}{C_1} + 0 \\
+  \lim_{t \to -\infty}{\frac{\cth{t}}{C_1}} &= -\frac{1}{C_1} - 0 \\
+\end{align*}
+
+Таким образом, значение поэтому в рассматриваемой функции $C_1$
+необходимо больше единицы (в противном случае $\phi(t)$ нигде не
+определена).
+
+Тогда $\phi(t)$ для всякого заданного $C_1$ определена всюду вне
+симметричного относительно нуля интервала $(-t_0;t_0)$, где $t_0 =
+\arccth{C_1}$ (см. рисунок \ref{fig:coth}).
+
+Зафиксируем $C_2 = 0$ и рассмотрим положительную ветвь
+\eqref{eq:geo-function-par} с $\phi(t) = \arcsin\left(\frac{\cth
+    t}{C_1}\right)$ при $t>0$. При минимально возможном $t = t_0 =
+\arccth{C_1}$ получаем $\rho = \arccth{C_1}$, $\phi = \frac{\pi}{2}$. С ростом
+$t$ кривая удаляется от начала координат, прижимаясь к асимптоте
+$\phi = \lim_{t \to +\infty} \arcsin{\cth t} = \arcsin{\frac{1}{C_1}}$.
+
+Аналогично, отрицательная ветвь с $\phi(t) = -\arcsin\frac{1}{C_1}$
+прижимается к $\phi = -\arcsin{\frac{1}{C_1}}$. Рассматривая
+дополнительно геодезические с тем же значением $C_1$ при $C_2 = \pi$,
+вновь получим две ветви, каждая из которых имеет асимптоту $\phi =
+\pi-\arcsin\frac{1}{C_1} \sim -\arcsin\frac{1}{C_1}$ и $\phi =
+\pi+\arcsin\frac{1}{C_1} \sim \arcsin\frac{1}{C_1}$, соответственно.
+
+\input{geodesics-hyperbolic.tkz}
+
+На рисунке \ref{fig:geodesics-hyperbolic} приведены три пары
+геодезических линий для значений $C_1=2/\sqrt{3},\,2/\sqrt{2},\,2$ и
+$C_2=0,\,\pi$. Соответствующие асимптоты имеют полярные углы, равные
+$\pi/3,\,\pi/4,\,\pi/6$, соответственно.
+
+Видно, что с увеличением параметра $C_1$ увеличивается минимальное
+расстояние до центра координат $\rho(t_0)$ и угол между асимптотами
+пары геодезических линий для заданного $C_1$ и $C_2=0,\,\pi$.
+
+Изменение параметра $C_2$ соответствует повороту выбранной
+геодезической линии вокруг центра координат (рисунок
+\ref{fig:geodesics-hyperbolic-2}).
+
+\input{geodesics-hyperbolic-2.tkz}
+
+Отметим, что при $C_1 \to +\infty$ минимальное $t= t_0 = 0$, а всё
+семейство \eqref{eq:geo-function-par} вырождается в множество прямых,
+проходящих через начало координат — то есть семейство геодезических,
+описываемых уравнением \eqref{eq:geo-des2}.
+
+Итак, мы определили, что геодезические линии на рассматриваемой
+плоскости представляют собой прямые, проходящие через начало
+координат, и всевозможные гиперболы, симметричные относительно начала
+координат (рисунок \ref{fig:geodesics-all}).
 
 \clearpage
 

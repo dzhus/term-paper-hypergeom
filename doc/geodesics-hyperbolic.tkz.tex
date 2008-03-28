@@ -1,0 +1,52 @@
+\begin{figure}[thb]
+  \centering
+  \begin{tikzpicture}[asymp/.style={dashed,draw=gray,thin},samples=50,smooth]
+    \coordinate[label=left:$O$] (O) at (0,0) {};
+    
+    \begin{scope}[raw gnuplot]
+      % asymptotes
+      \begin{scope}[asymp]
+        \begin{scope}[right]
+          \draw plot[id=asymp1]
+          function{set polar; set parametric; plot [-4:4] pi/6, t}
+          node {$\pi/6$};
+          \draw plot[id=asymp2]
+          function{set polar; set parametric; plot [-4:4] pi/4, t}
+          node {$\pi/4$};
+          \draw plot[id=asymp3]
+          function{set polar; set parametric; plot [-4:4] pi/3, t}
+          node {$\pi/3$};
+        \end{scope}
+        \begin{scope}[left]
+          \draw plot[id=_asymp1]
+          function{set polar; set parametric; plot [-4:4] 5*pi/6, t}
+          node {$5\pi/6$};
+          \draw plot[id=_asymp2]
+          function{set polar; set parametric; plot [-4:4] 3*pi/4, t}
+          node {$3\pi/4$};
+          \draw plot[id=_asymp3]
+          function{set polar; set parametric; plot [-4:4] 2*pi/3, t}
+          node {$2\pi/3$};
+        \end{scope}
+      \end{scope}
+      \begin{scope}[thick]
+        \draw plot[id=geo1] function{set polar; set parametric; plot [0.54930615:3] asin(cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=_geo1] function{set polar; set parametric; plot [0.54930615:3] pi-asin(cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=geo2] function{set polar; set parametric; plot [1.316958:3] asin(sqrt(3)*cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=_geo2] function{set polar; set parametric; plot [1.316958:3] pi-asin(sqrt(3)*cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=geo3] function{set polar; set parametric; plot [0.881374:3] asin(sqrt(2)*cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=_geo3] function{set polar; set parametric; plot [0.881374:3] pi-asin(sqrt(2)*cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=geo1] function{set polar; set parametric; plot [0.54930615:3] -asin(cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=_geo1] function{set polar; set parametric; plot [0.54930615:3] -pi+asin(cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=geo2] function{set polar; set parametric; plot [1.316958:3] -asin(sqrt(3)*cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=_geo2] function{set polar; set parametric; plot [1.316958:3] -pi+asin(sqrt(3)*cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=geo3] function{set polar; set parametric; plot [0.881374:3] -asin(sqrt(2)*cosh(t)/(2*sinh(t))),t;};
+        \draw plot[id=_geo3] function{set polar; set parametric; plot [0.881374:3] -pi+asin(sqrt(2)*cosh(t)/(2*sinh(t))),t;};
+      \end{scope}
+    \end{scope}
+
+    \node[dot] at (O) {};
+  \end{tikzpicture}
+  \caption{Геодезические линии с разными значениями параметра $C_1$}
+  \label{fig:geodesics-hyperbolic}
+\end{figure}

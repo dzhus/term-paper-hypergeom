@@ -1,0 +1,33 @@
+\begin{figure}[thb]
+  \centering
+  \begin{tikzpicture}[scale=.75,axis/.style={draw=gray,very thin},samples=50,smooth]
+    \draw[->,axis] (-5,0) -- (5,0) node[below] {$t$};
+    \draw[->,axis] (0,-5.5) -- (0,5.5) node[left] {$f(t)$};
+
+    \begin{scope}[domain=0.2:4]
+      \draw[thick] plot[id=cth] function{cosh(x)/sinh(x)} node[above] {$\cth{t}$};
+      \draw plot[id=cth2] function{cosh(x)/(2.2*sinh(x))} node[right] {$\frac{\cth{t}}{C_1}$};
+    \end{scope}
+
+    \begin{scope}[domain=-4:-0.2]
+      \draw[thick] plot[id=_cth] function{cosh(x)/sinh(x)};
+      \draw plot[id=_cth2] function{cosh(x)/(2.2*sinh(x))};
+    \end{scope}
+
+    % cut out interval
+    \coordinate[label=below:$-t_0$] (M) at (-0.49,0) {};
+    \coordinate[label=below:$t_0$] (N) at (0.49,0) {};
+    \draw[thick, dashed] (M)--(N);
+    \draw[densely dotted,gray] (M) -- ($ (M)-(0,1) $);
+    \draw[densely dotted,gray] (N) -- ($ (N)+(0,1) $);
+    
+    % asymptotes
+    \draw[densely dashed] plot[id=one] function{1};
+    \draw[densely dashed] plot[id=one2] function{-1};
+
+    \node[above left] at (0,1) {$1$};
+    \node[below right] at (0,-1) {$-1$};
+  \end{tikzpicture}
+  \caption{Функции $f(t) = \cth(t)$ и $f(t) = \frac{\cth(t)}{C_1},\, C_1>1$}
+  \label{fig:coth}
+\end{figure}

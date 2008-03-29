@@ -714,8 +714,8 @@ $S_\alpha$ задаётся уравнением $\rho = \phi$, которое �
 \begin{equation}\label{eq:arch-geo-curvature}
   \begin{split}
     k_g =& \sh{\rho} \abs{\krist{1}{2}{2} \dot{\rho} \dot{\phi} +
-      \krist{2}{1}{2} \dot{\phi} \dot{\rho} - \krist{2}{2}{1} \dot{\phi}
-      \dot {\phi}}= \\
+      \krist{2}{1}{2} \dot{\phi} \dot{\rho} - \krist{2}{2}{1}
+      \dot{\phi} \dot {\phi}}= \\
     =& \sh\rho \abs{\frac{\ch\rho}{\sh\rho} +
       \frac{\ch\rho}{\sh\rho} + \ch\rho \sh\rho} \frac{1}{s^2+1} = \\
     =& \frac{2\ch\rho + \ch\rho \sh^2\rho}{s^2+1}
@@ -725,12 +725,11 @@ $S_\alpha$ задаётся уравнением $\rho = \phi$, которое �
     =& \frac{1 + \ch^2\rho}{\ch\rho}
   \end{split}
 \end{equation}
-
-В естественной параметризации геодезическая кривизна архимедовой
-спирали при $\rho \geqslant 0$ вычисляется как $\frac{\sqrt{1+s^2} +
-  (1+s^2)^{\frac{3}{2}}}{s^2+1}$, что следует из
-\eqref{eq:arch-geo-curvature} и соотношения $\ch{\arcsh{s}} =
-\pm\sqrt{1+s^2}$.
+Поскольку $\ch\rho = \ch{\arcsh{s}} = \pm\sqrt{1+s^2}$,
+\eqref{eq:arch-geo-curvature} через длину дуги выражается как
+\begin{equation}\label{eq:arch-geo-curvature-nat}
+  k_g=\frac{1 + (1+s^2)}{\sqrt{s^2+1}}
+\end{equation}
 
 \clearpage
 \subsection{Спираль Архимеда в моделях плоскости Лобачевского}
@@ -920,7 +919,7 @@ $\rho_{e_0}$.
 
 Заметим, что $\frac{e^\rho-1}{e^\rho+1} =
 \frac{2(e^{\rho/2}-e^{-\rho/2})e^{\rho/2}}{2(e^{\rho/2}+e^{-\rho/2})e^{\rho/2}}
-= \frac{\sh(\rho/2)}{\ch(\rho/2)} = \th{\frac{t}{2}}$
+= \frac{\sh(\rho/2)}{\ch(\rho/2)} = \th{\frac{\rho}{2}}$
 
 Таким образом, для всякого выбранного значения угла $\alpha$
 параметризация спирали $S$ имеет вид

@@ -918,14 +918,21 @@ $\rho_{e_0}$.
   \ctg\alpha \ln\left(\frac{e^\rho-1}{e^\rho+1}\right) &= \phi + C
 \end{align*}
 
+Заметим, что $\frac{e^\rho-1}{e^\rho+1} =
+\frac{2(e^{\rho/2}-e^{-\rho/2})e^{\rho/2}}{2(e^{\rho/2}+e^{-\rho/2})e^{\rho/2}}
+= \frac{\sh(\rho/2)}{\ch(\rho/2)} = \th{\frac{t}{2}}$
+
 Таким образом, для всякого выбранного значения угла $\alpha$
 параметризация спирали $S$ имеет вид
 \begin{equation}\label{eq:con-spiral}
   \begin{cases}
     \rho(t) = t \\
-    \phi(t) = \frac{1}{\tg\alpha} \ln\left(1-\frac{2}{e^t+1}\right) + C
+    \phi(t) = \frac{1}{\tg\alpha} \ln \th\frac{t}{2} + C
   \end{cases}
 \end{equation}
+
+Не ограничивая общности рассуждений, в дальнейшем константу
+интегрирования $C$ для определённости будем полагать нулевой.
 
 \subsection{Длина дуги}
 
@@ -935,9 +942,9 @@ $\rho_{e_0}$.
   l(S)_{t_1}^{t_2} = \int_{t_1}^{t_2}\sqrt{d\rho^2+\sh^2\rho d\phi^2}
 \end{equation*}
 Сначала преобразуем подкоренное выражение с учётом
-\eqref{eq:con-spiral}. Поскольку $d\phi =
-\frac{2e^t}{\tg\alpha \left(1-\frac{2}{e^t+1}\right) (e^t+1)^2}dt =
-\frac{dt}{\tg{\alpha}\sh{t}}$, то
+\eqref{eq:con-spiral}. Поскольку $d\phi = \frac{2 dt}{\tg\alpha
+  \th(t/2) \ch^2(t/2)} = \frac{2 dt}{\tg\alpha \sh(t/2)
+  \ch(t/2)}=\frac{dt}{\tg{\alpha}\sh{t}}$, то
 \begin{equation*}  
   d\rho^2+\sh^2\rho d\phi^2 =
   dt^2 + \frac{\sh^2{t} dt}{\tg^2{\alpha}\sh^2{t}}
@@ -957,7 +964,7 @@ $\rho_{e_0}$.
 \begin{equation}
   \begin{cases}
     \rho(s) = s \sin\alpha\\
-    \phi(s) = \frac{1}{\tg\alpha}\ln\left(1-\frac{2}{\exp({s \sin\alpha})+1}\right)
+    \phi(s) = \frac{1}{\tg\alpha}\ln\th\frac{s \sin\alpha}{2}
   \end{cases}
 \end{equation}
 

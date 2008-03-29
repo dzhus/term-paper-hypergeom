@@ -658,7 +658,7 @@ $\pi/3,\,\pi/4,\,\pi/6$, а при $C_2=\pi$ — $2\pi/3,\,3\pi/4,\,5\pi/6$.
 \section{Спираль Архимеда}
 
 По определению, в полярных координатах $(\rho, \phi)$ спираль Архимеда
-$\gamma_\alpha$ задаётся уравнением $\rho = \phi$, которое имеет
+$S_\alpha$ задаётся уравнением $\rho = \phi$, которое имеет
 параметрический вид:
 \begin{equation}\label{eq:arch-spiral}
   \begin{cases}
@@ -674,7 +674,7 @@ $\gamma_\alpha$ задаётся уравнением $\rho = \phi$, котор�
 (см. \cite{dubrovin98}):
 \begin{equation}\label{eq:arch-length}
   \begin{split}
-    l(\gamma_\alpha)^{\phi_2}_{\phi_1} =
+    l(S_\alpha)^{\phi_2}_{\phi_1} =
     \int \limits_{\arc{AB}}{ds} &=
     \int \limits_{\arc{AB}}{\sqrt{d\rho^2+\sh^2\rho\,d\phi^2}} =\\
     &=\int \limits^{\phi_2}_{\phi_1}{\sqrt{\left ( 1 + \sh^2\phi \right )}}\,d\phi =
@@ -905,13 +905,13 @@ $\rho_{e_0}$.
   \cos \alpha &= \frac{d\bar{\rho} d\rho + \sh^2{\rho}d\bar{\phi}
     d\phi}{\sqrt{d\bar{\rho}^2 + \sh^2{\rho}d\bar{\phi}^2}
            \sqrt{d{\rho}^2 + \sh^2{\rho}d{\phi}^2}}\\
-         \text{Раз $d\bar{\rho}=0$,}\\
+         \text{Поскольку $d\bar{\rho}=0$,}\\
   \cos \alpha &= \frac{\sh^2\rho d\bar{\phi} d\phi}
                       {\sqrt{\sh^2\rho d\bar{\phi}^2}
                        \sqrt{d{\rho}^2 + \sh^2\rho d{\phi}^2}}\\
   \cos \alpha &= \frac{\sh \rho d\phi}
                       {\sqrt{d\rho^2+\sh^2\rho d\phi^2}}\\
-  \cos^2\alpha (d\rho^2+\sh^2\rho d\bar{\phi}^2) &= \sh^2\rho d\phi^2 \\
+  \cos^2\alpha (d\rho^2+\sh^2\rho d\phi^2) &= \sh^2\rho d\phi^2 \\
   \cos^2\alpha d\rho^2 &= \sin^2\alpha \sh^2\rho d\phi^2\\
   \cos \alpha d\rho &= \pm \sin\alpha \sh\rho d\phi\\
   \ctg\alpha \frac{d \rho}{\sh\rho} &= d\phi\\
@@ -920,12 +920,67 @@ $\rho_{e_0}$.
 
 Таким образом, для всякого выбранного значения угла $\alpha$
 параметризация спирали $S$ имеет вид
-\begin{equation}
+\begin{equation}\label{eq:con-spiral}
   \begin{cases}
     \rho(t) = t \\
     \phi(t) = \frac{1}{\tg\alpha} \ln\left(1-\frac{2}{e^t+1}\right) + C
   \end{cases}
 \end{equation}
+
+\subsection{Длина дуги}
+
+Вычислим длину дуги $l=l(S)_{t_1}^{t_2}$ рассматриваемой спирали по
+формуле \eqref{eq:riemann-curve-length}:
+\begin{equation*}
+  l(S)_{t_1}^{t_2} = \int_{t_1}^{t_2}\sqrt{d\rho^2+\sh^2\rho d\phi^2}
+\end{equation*}
+Сначала преобразуем подкоренное выражение с учётом
+\eqref{eq:con-spiral}. Поскольку $d\phi =
+\frac{2e^t}{\tg\alpha \left(1-\frac{2}{e^t+1}\right) (e^t+1)^2}dt =
+\frac{dt}{\tg{\alpha}\sh{t}}$, то
+\begin{equation*}  
+  d\rho^2+\sh^2\rho d\phi^2 =
+  dt^2 + \frac{\sh^2{t} dt}{\tg^2{\alpha}\sh^2{t}}
+  =\left(1+\frac{1}{\tg^2{\alpha}}\right) dt^2
+\end{equation*}
+Поэтому формула для вычисления длины дуги принимает вид
+\begin{multline}
+  l(S)_{t_1}^{t_2} =
+  \int_{t_1}^{t_2}\sqrt{\left(1+\frac{1}{\tg^2{\alpha}}\right)dt^2} =
+  \int_{t_1}^{t_2}\sqrt{1+\frac{1}{\tg^2{\alpha}}}dt = \\
+  = \int_{t_1}^{t_2}\frac{dt}{\abs{\sin\alpha}} =
+  \frac{(t_1 - t_2)}{\abs{\sin\alpha}}
+\end{multline}
+
+Таким образом, естественная параметризация спирали $S$ представляется
+в виде
+\begin{equation}
+  \begin{cases}
+    \rho(s) = s \sin\alpha\\
+    \phi(s) = \frac{1}{\tg\alpha}\ln\left(1-\frac{2}{\exp({s \sin\alpha})+1}\right)
+  \end{cases}
+\end{equation}
+
+\subsection{Геодезическая кривизна}
+Производные от координат спирали по длине дуги $s$ таковы:
+\begin{align*}
+  \dot{\rho} &= \sin\alpha &\qquad \ddot{\rho} &= 0 \\
+  \dot{\phi} &= \frac{\cos\alpha}{\sh\left(s \sin\alpha\right)} = \frac{\cos\alpha}{\sh\rho} &\qquad
+  \ddot{\phi} &= -\frac{\sin{2\alpha} \ch\left(s \sin\alpha\right)}
+                      {2 \sh^2\left(s \sin\alpha\right)} =
+                      -\frac{\sin{2\alpha} \ch\rho}{2 \sh^2\rho}
+\end{align*}
+
+Подставим их, а также символы Кристоффеля \eqref{eq:krist} в
+\eqref{eq:geodesic-curvature}:
+\begin{align*}
+  k_g =& \sh{\rho} \abs{\krist{1}{2}{2} \dot{\rho} \dot{\phi} +
+    \krist{2}{1}{2} \dot{\phi} \dot{\rho} - \krist{2}{2}{1} \dot{\phi}
+    \dot {\phi}}= \\
+  =& \sh\rho\abs{\frac{2\ch\rho \sin{2\alpha}}{\sh\rho \sh\rho} +
+    \frac{\ch\rho \sh\rho \cos^2\alpha}{\sh^2\rho}}
+\end{align*}
+
 
 \clearpage
 \bibliographystyle{gost780s}

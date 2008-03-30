@@ -1,0 +1,24 @@
+\begin{figure}[thb]
+  \centering
+  \begin{tikzpicture}[samples=50,smooth,raw gnuplot]
+    \coordinate[label=left:$O$] (O) at (0,0) {};
+    
+    % geodesics
+    \foreach \r in {0, pi/2, pi, 3*pi/2}
+    {\begin{scope}
+        \draw plot function{set polar; set parametric; plot [0.54930615:3] asin(cosh(t)/(2*sinh(t)))+\r,t;};
+        \draw plot function{set polar; set parametric; plot [0.54930615:3] pi-asin(cosh(t)/(2*sinh(t)))+\r,t;};
+        \draw plot function{set polar; set parametric; plot [1.316958:3] asin(sqrt(3)*cosh(t)/(2*sinh(t)))+\r,t;};
+        \draw plot function{set polar; set parametric; plot [1.316958:3] pi-asin(sqrt(3)*cosh(t)/(2*sinh(t)))+\r,t;};
+        \draw plot function{set polar; set parametric; plot [0.881374:3] asin(sqrt(2)*cosh(t)/(2*sinh(t)))+\r,t;};
+        \draw plot function{set polar; set parametric; plot [0.881374:3] pi-asin(sqrt(2)*cosh(t)/(2*sinh(t)))+\r,t;};
+        \draw plot function{set polar; set parametric; plot [0:3.1] \r,t;};
+        \draw plot function{set polar; set parametric; plot [0:3.1] \r+pi/6,t};
+        \draw plot function{set polar; set parametric; plot [0:3.1] \r+pi/3,t};
+      \end{scope}}
+    
+    \node[dot] at (O) {};
+  \end{tikzpicture}
+  \caption{Геодезические линии на плоскости Лобачевского}
+  \label{fig:geodesics-hyperbolic-all}
+\end{figure}

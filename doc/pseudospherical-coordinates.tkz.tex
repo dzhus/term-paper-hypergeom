@@ -1,0 +1,38 @@
+\begin{figure}[thb]
+  \centering
+  \begin{tikzpicture}[samples=50,smooth,raw gnuplot]
+    \coordinate[label=below:$O$] (O) at (0,0) {};
+    \coordinate (P) at (3.2,1.7) {};
+    \coordinate (Pp) at ($ (P)+(-4.3,0) $);
+
+    % axis
+    \draw[->] (O) -- ++(5,0) node[label=below:$x$] {};
+    \draw[->] (O) -- ++(0,3) node[label=left:$z$] {};
+    \draw[->] (O) -- ++(-2,-1.5) node[label=above:$y$] {};
+
+    % phi
+    \begin{scope}
+      \clip (Pp)--(O)--++(-2,-1.5);
+      \draw ($ (O)+(0.05,0) $) circle(0.3);
+    \end{scope}
+    \node at ($ (O)+(-0.5,0) $) {$\phi$};
+
+    % chi
+    \begin{scope}
+      \clip (O)--(P)--(3,0);
+      \draw[double distance=1pt] (O) circle(0.7);
+    \end{scope}
+    \node at ($ (O)+(0.90,0.20) $) {$\chi$};
+    
+    % radius and its projection
+    \draw[thick] (O) -- node[pos=0.7,label=above:$\rho$] {}
+    (P);
+    \draw[densely dotted] (P) -- (Pp);
+    \draw[densely dashed] (O)  -- (Pp);
+    
+    \node[dot] at (O) {};
+    \node[dot] at (P) {};
+  \end{tikzpicture}
+  \caption{Псевдосферические координаты $(\rho, \chi, \phi)$}
+  \label{fig:pseudospheric-coords}
+\end{figure}

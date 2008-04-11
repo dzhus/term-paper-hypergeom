@@ -3,7 +3,6 @@
 \usepackage[english,russian]{babel}
 
 \usepackage{amsmath,amssymb}
-
 % provides enumerated cases environment
 \usepackage{cases}
 
@@ -435,7 +434,7 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
 Геодезическая кривизна кривой $\gamma = \gamma(x^1(s), x^2(s))$,
 параметризованной естественно ($s$ — длина дуги) во всякой точке может
 быть вычислена по формуле (см. \cite{pogorelov74}, \cite{rashevsky50})
-\begin{equation}\label{eq:geodesic-curvature}
+\begin{equation}
   k_g = \sqrt{g_{11} g_{22} - g_{12}^2}\abs{\dot{x}^1 (\ddot{x}^2 +
     \krist{I}{J}{2} \dot{x}^I \dot{x}^J) - \dot{x}^2 (\ddot{x}^1 +
     \krist{I}{J}{1} \dot{x}^I \dot{x}^J)}
@@ -459,7 +458,17 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
     \krist{2}{2}{1} &= -\ch{\rho} \sh{\rho} &\qquad \krist{2}{2}{2} & = 0
   \end{aligned}
 \end{equation}
-  
+
+Таким образом, окончательное выражение для нахождения геодезической
+кривизны кривой с естественной параметризацией $(\rho(s),\,\phi(s))$ в
+рассматриваемом пространстве имеет вид
+\begin{equation}\label{eq:geodesic-curvature}
+  k_g = \sh\rho \abs{\dot\rho(\ddot\phi +
+    \krist{1}{2}{2}\dot\rho\dot\phi +
+    \krist{2}{1}{2}\dot\phi\dot\rho) -
+    \dot\phi(\ddot\rho + \krist{2}{2}{1}\dot\phi\dot\phi)}  
+\end{equation}
+
 \subsubsection{Геодезические линии}
 
 \neword{Геодезической линией} на поверхности называется кривая,
@@ -991,22 +1000,33 @@ $\alpha$ параметризация спирали $S$ имеет вид
 \begin{align*}
   \dot{\rho} &= \sin\alpha &\qquad \ddot{\rho} &= 0 \\
   \dot{\phi} &= \frac{\cos\alpha}{\sh\left(s \sin\alpha\right)} = \frac{\cos\alpha}{\sh\rho} &\qquad
-  \ddot{\phi} &= -\frac{\sin{2\alpha} \ch\left(s \sin\alpha\right)}
+  \ddot{\phi} &= -\frac{\sin{2\alpha} \cdot \ch\left(s \sin\alpha\right)}
                       {2 \sh^2\left(s \sin\alpha\right)} =
-                      -\frac{\sin{2\alpha} \ch\rho}{2 \sh^2\rho}
+                      -\frac{\sin{2\alpha} \cdot \ch\rho}{2 \sh^2\rho}
 \end{align*}
 
 Подставим их, а также символы Кристоффеля \eqref{eq:krist} в
 \eqref{eq:geodesic-curvature}:
-\begin{align*}
-  k_g =& \sh{\rho} \abs{\krist{1}{2}{2} \dot{\rho} \dot{\phi} +
-    \krist{2}{1}{2} \dot{\phi} \dot{\rho} - \krist{2}{2}{1} \dot{\phi}
-    \dot {\phi}}= \\
-  =& \sh\rho\abs{2\frac{\ch\rho}{\sh\rho}\cdot \sin\alpha \cdot \frac{\cos\alpha}{\sh\rho} +
-    \ch\rho \sh\rho \cdot \frac{\cos^2\alpha}{\sh^2\rho}} = \\
-  =& \ch(s \sin\alpha) \abs{\frac{\sin{2\alpha}}{\sh(s \sin\alpha)} + \cos^2\alpha}
-\end{align*}
-
+\begin{equation}\label{eq:con-geo-curvature}
+  \begin{split}
+    k_g = \sh\rho& \abs{\dot\rho(\ddot\phi +
+      \krist{1}{2}{2}\dot\rho\dot\phi +
+      \krist{2}{1}{2}\dot\phi\dot\rho) -
+      \dot\phi(\ddot\rho + \krist{2}{2}{1}\dot\phi\dot\phi)} =\\
+    =\sh\rho& \abs{\sin\alpha\left(-\frac{\sin{2\alpha} \cdot
+          \ch\rho}{2\sh^2\rho} +
+        \frac{\ch\rho}{\sh\rho}\cdot\left(2\cdot\sin\alpha\cdot\frac{\cos\alpha}{\sh\rho}\right)\right)
+      - \frac{\cos\alpha}{\sh\rho}
+      \left(\frac{\cos^2\alpha}{\sh^2\rho}\cdot\left(-\ch\rho
+          \sh\rho\right)\right)} =\\
+    =\sh\rho&
+    \abs{\sin\alpha\left(\frac{\sin{2\alpha}\cdot\ch\rho}{2\sh^2\rho}\right)
+      + \left(\frac{\cos^3\alpha\cdot\ch\rho}{\sh^2\rho}\right)} =\\
+    =\cth\rho&\abs{\frac{\sin\alpha\cdot\sin{2\alpha}}{2}+\cos^3\alpha}
+    = \cth\rho\abs{\sin^2\alpha\cos\alpha+\cos\alpha(1-\sin^2\alpha)} =\\
+    = \cth\rho&\abs{\cos\alpha}    
+  \end{split}
+\end{equation}
 
 \clearpage
 \bibliographystyle{gost780s}

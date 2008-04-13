@@ -508,7 +508,27 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
 
 Рассмотрим два случая.
 \begin{enumerate}
-\item Пусть $\dot{\phi} \neq 0$. Из \eqref{eq:geo-des-second} получим:
+\item Пусть $\dot{\phi} = 0 \iff \phi = \hat{C}_1 = \const$. Получаем систему
+  \begin{subnumcases}{\label{eq:geo-des2}}
+    \ddot{\rho} = 0 \\
+    \ddot{\phi} = 0 \\
+    (\dot{\rho})^2  = 1 & \label{eq:geo-des2-third}
+  \end{subnumcases}
+
+  Из \eqref{eq:geo-des2-third}
+  \begin{equation*}
+    \begin{split}
+      \dot{\rho} =& \pm 1\\
+      \rho =& \pm s + \hat{C}_2
+    \end{split}
+  \end{equation*}
+  
+  Этот случай описывает прямые, проходящие через начало полярной
+  системы координат с постоянным полярным углом $\phi$, при этом знак
+  и постоянная константа $\hat{C}_2$ в выражении для $\rho$ не
+  оказывают влияния на характер таких геодезических.
+  
+\item Пусть теперь $\dot{\phi} \neq 0$. Из \eqref{eq:geo-des-second} получим:
   \begin{equation*}
     \begin{split}
       \frac{\ddot{\phi}}{\dot{\phi}} =& -2 \frac{\ch \rho}{\sh \rho}\dot{\rho} \\
@@ -541,29 +561,10 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
   $\lvert\widetilde{C}_1\rvert>1$. При выводе \eqref{eq:geo-function}
   использовалось соотношение $\cth^2\rho = {\ch^2\rho}/{\sh^2\rho} =
   1+{1}/{\sh^2\rho}$.
-  
-\item Пусть теперь $\dot{\phi} = 0 \iff \phi = \hat{C}_1 = \const$. Получаем систему
-  \begin{subnumcases}{\label{eq:geo-des2}}
-    \ddot{\rho} = 0 \\
-    \ddot{\phi} = 0 \\
-    (\dot{\rho})^2  = 1 & \label{eq:geo-des2-third}
-  \end{subnumcases}
 
-  Из \eqref{eq:geo-des2-third}
-  \begin{equation*}
-    \begin{split}
-      \dot{\rho} =& \pm 1\\
-      \rho =& \pm s + \hat{C}_2
-    \end{split}
-  \end{equation*}
-  
-  Этот случай описывает прямые, проходящие через начало полярной системы
-  координат с постоянным углом $\phi$, при этом знак и постоянная
-  константа $\hat{C}_2$ в выражении для $\rho$ не оказывают влияния на
-  характер таких геодезических.
 \end{enumerate}
 
-Подробнее рассмотрим первое полученное семейство геодезических.
+Подробнее рассмотрим второе полученное семейство геодезических.
 
 Запишем уравнение \eqref{eq:geo-function} в параметрическом виде:
 \begin{equation}\label{eq:geo-function-par}
@@ -579,18 +580,20 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
 
 Определим значения $t$, при которых определены значения $\phi(t)$ в
 \eqref{eq:geo-function-par}. Отметим, что значение $C_2$ не оказывает
-влияние на область определения.
+влияния на область определения.
 
 Функция $\arcsin{\left(\frac{\cth{t}}{C_1}\right)}$ определена при
-$\abs{\frac{\cth{t}}{C_1}} \leq 1$. Поскольку \mbox{$\lim_{x \to
-    0}{\cth{x}} = \infty$}, функция $\phi(t)$ в нуле не определена для
-всякого конечного $C_1$ (так что геодезические, описываемые уравнением
-\eqref{eq:geo-function-par}, не проходят через начало координат).
+$\abs{\frac{\cth{t}}{C_1}} \leq 1$. Поскольку \mbox{$\lim
+  \limits_{x\to 0}{\cth{x}} = \infty$}, функция $\phi(t)$ в нуле не
+определена для всякого конечного $C_1$, так что геодезические,
+описываемые уравнением \eqref{eq:geo-function-par}, не проходят через
+начало координат.
 
-Кроме того, из свойств гиперболического котангенса имеем
+Кроме того, из свойств гиперболического котангенса
 \begin{align*}
   \lim_{t \to +\infty}{\cth{t}} &= 1 + 0 \\
   \lim_{t \to -\infty}{\cth{t}} &= -1 - 0 \\
+  \abs{\cth t} &> 1
 \end{align*}
 
 \input{coth.tkz}
@@ -599,11 +602,12 @@ $\abs{\frac{\cth{t}}{C_1}} \leq 1$. Поскольку \mbox{$\lim_{x \to
 \begin{align*}
   \lim_{t \to +\infty}{\frac{\cth{t}}{C_1}} &= \frac{1}{C_1} + 0 \\
   \lim_{t \to -\infty}{\frac{\cth{t}}{C_1}} &= -\frac{1}{C_1} - 0 \\
+  \abs{\frac{\cth t}{C_1}} &> \frac{1}{C_1}
 \end{align*}
 
-Таким образом, значение поэтому в рассматриваемой функции $\phi(t)$
-значение константы $C_1$ необходимо больше единицы (в противном случае
-$\phi(t)$ нигде не определена).
+Таким образом, в рассматриваемой функции $\phi(t)$ значение константы
+$C_1$ необходимо больше единицы (в противном случае $\phi(t)$ нигде не
+определена).
 
 Тогда $\phi(t)$ для всякого заданного $C_1$ определена всюду вне
 симметричного относительно нуля интервала $(-t_0;t_0)$, где $t_0 =

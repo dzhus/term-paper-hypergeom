@@ -4,7 +4,8 @@
     \coordinate[] (O) at (0,0) {};
     
     % geodesics
-    \foreach \r in {0, pi/2, pi, 3*pi/2}
+    \foreach \f in {0,...,7}
+    \foreach \r in {pi/4*\f}
     {\begin{scope}[thick]
         \draw plot function{set polar; set parametric; plot [0.54930615:3] asin(cosh(t)/(2*sinh(t)))+\r,t;};
         \draw plot function{set polar; set parametric; plot [0.54930615:3] pi-asin(cosh(t)/(2*sinh(t)))+\r,t;};

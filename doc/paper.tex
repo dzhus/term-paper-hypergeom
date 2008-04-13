@@ -805,24 +805,23 @@ $\phi$.
   = \frac{1}{2}\abs{\ln\left(1+\frac{2\rho_e(P)}{1-\rho_e(P)}\right)}
 \end{multline}
 
-Пусть в полярных координатах модели Клейна задана архимедова спираль
-$\rho_k(\phi) = \phi$. Найдём выражение $\rho_e(\phi)$ такой спирали,
-чтобы изобразить её на евклидовой плоскости. Обозначим $\rho_k(P) =
-\rho_k$, $\rho_e(P) = \rho_e$. Из \eqref{eq:projective-metric-polar} и
-определения архимедовой спирали
+Обозначим $\rho_k(P) = \rho_k$, $\rho_e(P) = \rho_e$. Из
+\eqref{eq:projective-metric-polar} следует, что
 \begin{align*}
   e^{2\rho_k} &= 1+\frac{2\rho_e}{1-\rho_e} \\
   e^{2\rho_k}-1 &= \frac{2}{1/\rho_e-1} \\
   \frac{2}{e^{2\rho_k}-1} &=1/\rho_e-1 \\
   \frac{e^{2\rho_k}+1}{e^{2\rho_k}-1} &= \frac{1}{\rho_e} \\
   \frac{e^{2\rho_k}-1}{e^{2\rho_k}+1} &= \rho_e \\
-  \th \rho_k &= \rho_e
 \end{align*}
-При выводе использовалось соотношение \eqref{eq:tanh}.
+и согласно \eqref{eq:tanh},
+\begin{equation}\label{eq:klein-to-euclid}
+  \th \rho_k = \rho_e
+\end{equation}
 
-Таким образом, в евклидовых полярных координатах $(\rho_e, \phi)$
-уравнение архимедовой спирали модели Клейна $\rho_k(\phi) = \phi$ принимает вид
-
+Пусть в полярных координатах модели Клейна задана архимедова спираль
+$\rho_k(\phi) = \phi$. Исходя из \eqref{eq:klein-to-euclid}, уравнение
+такой спирали на евклидовой плоскости принимает вид
 \begin{equation}\label{eq:arch-spiral-klein}
   \rho_e(\phi) = \th{\phi}
 \end{equation}
@@ -847,7 +846,7 @@ $\rho_e=1$, не достигая её (рисунок \ref{fig:arch-spiral-kle
 \label{sec:arch-spiral-poincare}
 
 Рассмотрим модель Пуанкаре в единичном круге (см. раздел
-\ref{sec:what-is-up}, рисунок \ref{fig:poincare-disk-model} и
+\ref{sec:what-is-up}, рисунок \ref{fig:poincare-disk-model};
 рисунок \ref{fig:poincare-disk-model-2}) и две системы полярных
 координат в ней — евклидову $(\rho_e, \phi)$ и систему $(\rho_p,
 \phi)$, где $\rho_p$ — внутренняя метрика модели Пуанкаре. Вновь в
@@ -858,6 +857,9 @@ $\rho_e=1$, не достигая её (рисунок \ref{fig:arch-spiral-kle
 \input{poincare-disk-model-2.tkz}
 
 Для начала стоит рассмотреть связь модели Пуанкаре с моделью Клейна.
+
+\input{klein-to-poincare.tkz}
+
 Известно, что сопоставление $\xi$ точки $P$ модели Клейна и
 соответствующей ей точки $P^\prime$ модели Пуанкаре может быть
 осуществлено следующим образом (рисунок \ref{fig:klein-to-poincare}):
@@ -868,15 +870,17 @@ $\rho_e=1$, не достигая её (рисунок \ref{fig:arch-spiral-kle
 $P^\prime$ модели Пуанкаре в том же круге. Такая стереографическая
 проекция также переводит прямые модели Клейна (хорды) в прямые модели
 Пуанкаре (дуги окружностей, пересекающие границу круга под прямым
-углом).
-
-\input{klein-to-poincare.tkz}
+углом). Требуется, чтобы $\xi$ было изометрией, поэтому необходимо
+\begin{equation}\label{eq:klein-to-poincare}
+  d_k(P,Q) = d_p(P^\prime,Q^\prime)
+\end{equation}
 
 Из соображений проективной геометрии (см. \cite{prasolov04}) известно,
 что при отображении $\xi$ метрика преобразуется следующим образом:
-$2d_k(P,Q) = d_k(P^\prime, Q^\prime)$, где $P^\prime=\xi(P),\,Q^\prime=\xi(Q)$.
-
-С учётом этого и \eqref{eq:projective-metric-polar}, немедленно получаем
+$2d_k(P,Q) = d_k(P^\prime, Q^\prime)$, где
+$P^\prime=\xi(P),\,Q^\prime=\xi(Q)$. С учётом этого, а также
+\eqref{eq:klein-to-poincare} и \eqref{eq:projective-metric-polar},
+немедленно получаем
 \begin{equation}\label{eq:poincare-metric-polar}
  \rho_p(P) = \abs{\ln\left(1+\frac{2\rho_e(P)}{1-\rho_e(P)}\right)}  
 \end{equation}
@@ -904,25 +908,33 @@ $\rho_{e_0}$.
   \begin{multline*}
     \rho_p = 2\int_0^{\rho_{e_0}} \frac{d\rho_e}{1-\rho_e^2} =
      2 \frac{1}{2} \left . \left [ \ln(1+\rho_e) - \ln(1-\rho_e)
-       \right ] \right \rvert_0^{\rho_{e_0}} = \\
+       \right ] \right\rvert_0^{\rho_{e_0}} = \\
      = \left . \ln{\left( \frac{1+\rho_e}{1-\rho_e} \right)} \right
      \rvert_0^{\rho_{e_0}} =
-     \abs{ \ln{\left(\frac{1+\rho_{e_0}}{1-\rho_{e_0}} \right)}}
+     \abs{ \ln{\left(\frac{1+\rho_{e_0}}{1-\rho_{e_0}} \right)}} =
+     \abs{ \ln{\left(1+\frac{2\rho_{e_0}}{1-\rho_{e_0}} \right)}}
   \end{multline*}
 \end{subequations}
 
 Как видно, результат полностью совпадает с
 \eqref{eq:poincare-metric-polar}.
 
+Для модели Пуанкаре аналогичное \eqref{eq:klein-to-euclid} соотношение
+принимает вид
+
+\begin{equation}\label{eq:poincare-to-euclid}
+  \th \frac{\rho_p}{2} = \rho_e
+\end{equation}
+
 Таким образом, спираль Архимеда $\rho_p = \phi$ в модели Пуанкаре на
 евклидовой плоскости задаётся уравнением
 \begin{equation}\label{eq:arch-spiral-poincare}
-  \rho_e(\phi) = 1 - \frac{2}{e^\phi+1} = \th\frac{\phi}{2}
+  \rho_e(\phi) = \th\frac{\phi}{2}
 \end{equation}
+Евклидов образ спирали приведён на рисунке \ref{fig:arch-spiral-poincare}.
 
 \input{arch-spiral-poincare.tkz}
 
-Евклидов образ спирали приведён на рисунке \ref{fig:arch-spiral-poincare}.
 \clearpage
 \section{Спираль, пересекающая концентрические окружности под постоянным углом}
 
@@ -972,13 +984,13 @@ $\alpha$ параметризация спирали $S$ имеет вид
 Известно, что указанным свойством (пересечение радиальных линий под
 постоянным углом) \emph{в евклидовом пространстве} обладает
 логарифмическая спираль (\cite{klein39}). Действительно, исходя из
-найденного в разделе \ref{sec:arch-spiral-poincare} соотношения между
-евклидовой метрикой $\rho_e$ и метрикой модели Пуанкаре $\rho_p$ и
-того факта, что геометрия модели Пуанкаре совпадает с рассматриваемой
-(см. \ref{sec:what-is-up}), можно сказать, что если спираль $S(t)$
-задана в модели Пуанкаре и для неё $\rho_p = t$, то $\rho_e=\th(t/2)$.
-Поскольку $\phi_e \equiv \phi_p$, то в евклидовом пространстве
-параметризация такой спирали имеет вид
+найденного в разделе \ref{sec:arch-spiral-poincare} соотношения
+\eqref{eq:poincare-to-euclid} между евклидовой метрикой $\rho_e$ и
+метрикой модели Пуанкаре $\rho_p$ и того факта, что геометрия модели
+Пуанкаре совпадает с рассматриваемой (см. \ref{sec:what-is-up}), можно
+сказать, что если спираль $S(t)$ задана в модели Пуанкаре и для неё
+$\rho_p = t$, то $\rho_e=\th(t/2)$. Поскольку $\phi_e \equiv \phi_p$,
+то в евклидовом пространстве параметризация такой спирали имеет вид
 \begin{equation*}
   \begin{cases}
     \rho(t) = \th\frac{t}{2} \\

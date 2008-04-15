@@ -1,6 +1,6 @@
 \begin{figure}[thb]
   \centering
-  \begin{tikzpicture}[scale=1]
+  \begin{tikzpicture}[scale=1,axis/.style={color=gray,thin,->}]
     \coordinate [label=below left:$O$] (O) at (0, 0);
     \coordinate [label=right:$z$] (z) at (0,4);
     \coordinate [label=below:$x$] (x) at (4,0);
@@ -10,8 +10,8 @@
     \coordinate [label=below right:$S$] (S) at ($ (O)!.5!(x) $);
     
     % axis
-    \draw [->,color=gray,very thin] ($ (O)!-1!(x) $) -- (O) -- (x);
-    \draw [->,color=gray,very thin] ($ (O)!-1!(z) $) -- (O) -- (z);
+    \draw [axis] ($ (O)!-1!(x) $) -- (O) -- (x);
+    \draw [axis] ($ (O)!-1!(z) $) -- (O) -- (z);
 
     % projection disk
     \coordinate (M) at ($ (O)!.5!(z) $) {};
@@ -36,8 +36,8 @@
     % dot marks
     \foreach \p in {O,N,S,P,Pp} \node[dot] at (\p){};
   \end{tikzpicture}
-  \caption{Стереографическая проекция псевдосферы $S^2_1$ мнимого
-    радиуса, смоделированной в $\mathbb{R}^3$, на плоскость $YOZ$
-    (сечение $XOZ$)}
+  \caption[Стереографическая проекция псевдосферы]{Стереографическая
+    проекция псевдосферы $S^2_1$ мнимого радиуса, смоделированной в
+    $\mathbb{R}^3$, на плоскость $YOZ$ (сечение $XOZ$)}
   \label{fig:pseudosphere-projection}
 \end{figure}

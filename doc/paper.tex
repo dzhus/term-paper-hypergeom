@@ -30,7 +30,6 @@
 
 \providecommand{\arc}[1]{\wideparen{#1}}
 \providecommand{\abs}[1]{\left \lvert{#1}\right \rvert}
-
 \begin{document}
 
 \author{Дмитрий Джус}
@@ -731,11 +730,8 @@ $S_\alpha$ задаётся уравнением $\rho = \phi$, которое �
 
 \subsection{Геодезическая кривизна}
 
-Найдём всё необходимое для вычисления выражения
-\eqref{eq:geodesic-curvature}.
-
-Кроме того, с учётом определения архимедовой спирали
-\eqref{eq:arch-spiral} и результата \eqref{eq:arch-natural-param},
+С учётом определения архимедовой спирали \eqref{eq:arch-spiral} и
+результата \eqref{eq:arch-natural-param},
 \begin{gather}
   \begin{align*}
     \dot{\rho} = \frac{1}{\sqrt{s^2+1}} && \ddot{\rho} = -\frac{s}{(s^2+1)^{\frac{3}{2}}}\\
@@ -746,7 +742,7 @@ $S_\alpha$ задаётся уравнением $\rho = \phi$, которое �
 Символы Кристоффеля были вычислены в \eqref{eq:krist}. Подставим все
 полученные выражения в \eqref{eq:geodesic-curvature}, учитывая, что
 $x^1 \equiv \rho$, $x^2 \equiv \phi$:
-\begin{equation}\label{eq:arch-geo-curvature}
+\begin{equation}
   \begin{split}
     k_g =& \sh\rho \abs{\dot\rho(\ddot\phi +
       \krist{1}{2}{2}\dot\rho\dot\phi +
@@ -763,11 +759,6 @@ $x^1 \equiv \rho$, $x^2 \equiv \phi$:
     \frac{(\ch\rho+\ch^3\rho)}{\ch^2\rho} = \\
     =& \frac{1 + \ch^2\rho}{\ch\rho}
   \end{split}
-\end{equation}
-Поскольку $\ch\rho = \ch{\arcsh{s}} = \sqrt{1+s^2}$, геодезическая
-кривизна \eqref{eq:arch-geo-curvature} через длину дуги выражается как
-\begin{equation}\label{eq:arch-geo-curvature-nat}
-  k_g=\frac{1 + (1+s^2)}{\sqrt{s^2+1}}
 \end{equation}
 
 \clearpage

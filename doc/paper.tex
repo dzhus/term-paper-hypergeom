@@ -3,11 +3,16 @@
 \usepackage[english,russian]{babel}
 
 \usepackage{amsmath,amssymb}
+
 % provides enumerated cases environment
 \usepackage{cases}
 
 % provides \wideparen
 \usepackage{yhmath}
+
+% rich title
+\usepackage{titling}
+
 
 % TikZ
 \usepackage{tikz}
@@ -21,6 +26,7 @@
 \renewcommand{\phi}{\varphi}
 \DeclareMathOperator{\arcsh}{arcsh}
 \DeclareMathOperator{\arccth}{arccth}
+\usepackage{misccorr}
 
 \providecommand{\const}{\mathrm{const}}
 \newcommand{\krist}[3]{\Gamma^{\phantom{#1 #2}#3}_{#1 #2}}
@@ -35,13 +41,17 @@
 \author{Дмитрий Джус}
 \title{Курсовая работа по теме \\
   «Спирали на плоскости Лобачевского»}
+\pretitle{\begin{center}\Huge}
+\posttitle{\par\end{center}\vskip 3pc}
 \maketitle
 \thispagestyle{empty}
 
 \clearpage
-\tableofcontents
-\listoffigures
 
+\tableofcontents
+\clearpage
+
+\listoffigures
 \clearpage
 
 \part{Введение}
@@ -507,7 +517,7 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
 Решим эту систему, получив уравнение геодезических линий.
 
 Рассмотрим два случая.
-\begin{enumerate}
+\begin{rlist}
 \item Пусть $\dot{\phi} = 0 \iff \phi = \hat{C}_1 = \const$. Получаем систему
   \begin{subnumcases}{\label{eq:geo-des2}}
     \ddot{\rho} = 0 \\
@@ -562,7 +572,7 @@ $\gamma$ (рисунок \ref{fig:geodesic-curvature}).
   использовалось соотношение $\cth^2\rho = {\ch^2\rho}/{\sh^2\rho} =
   1+{1}/{\sh^2\rho}$.
 
-\end{enumerate}
+\end{rlist}
 
 Подробнее рассмотрим второе полученное семейство геодезических.
 
@@ -928,7 +938,7 @@ $\rho_{e_0}$.
 \input{arch-spiral-poincare.tkz}
 
 \clearpage
-\section{Спираль, пересекающая концентрические окружности под постоянным углом}
+\section{Спираль, пересекающая концентрические\\ окружности под постоянным углом}
 
 \subsection{Уравнение спирали}
 

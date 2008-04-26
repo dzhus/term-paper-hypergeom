@@ -1,8 +1,12 @@
 \begin{figure}[!thb]
   \centering
-  \begin{tikzpicture}[asymp/.style={dashed,draw=gray,thin},samples=50,smooth]
+  \begin{tikzpicture}[axis/.style={draw=gray,thin},asymp/.style={axis,dashed},samples=50,smooth]
     \coordinate[label=left:$O$] (O) at (0,0) {};
     
+    % cartesian coordinates
+    \draw [axis,->] (O)--($ (O) + (0,3.5) $) node[label=left:$v$] {};
+    \draw [axis,->] (O)--($ (O) + (3.5,0) $) node[label=above:$u$] {};
+
     \begin{scope}[raw gnuplot]
       % asymptotes
       \begin{scope}[asymp]

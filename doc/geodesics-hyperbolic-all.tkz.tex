@@ -1,8 +1,12 @@
 \begin{figure}[thb]
   \centering
-  \begin{tikzpicture}[samples=50,smooth,raw gnuplot,scale=2]
+  \begin{tikzpicture}[samples=50,axis/.style={draw=gray,thin},smooth,raw gnuplot,scale=2]
     \coordinate[] (O) at (0,0) {};
     
+    % cartesian coordinates
+    \draw [axis,->] (O)--($ (O) + (0,3.5) $) node[label=left:$v$] {};
+    \draw [axis,->] (O)--($ (O) + (3.5,0) $) node[label=above:$u$] {};
+
     % geodesics
     \foreach \f in {0,...,7}
     \foreach \r in {pi/4*\f}

@@ -1,8 +1,14 @@
 \begin{figure}[!thb]
   \centering
-  \begin{tikzpicture}[samples=50,smooth]
+  \begin{tikzpicture}[axis/.style={draw=gray,thin},samples=50,smooth,scale=0.9]
     \coordinate[label=left:$O$] (O) at (0,0) {};
     
+    % cartesian coordinates
+    \draw [axis,->] (O)--($ (O) + (0,3) $) node[label=left:$v$] {};
+    \draw [axis,->] (O)--($ (O) + (3,0) $) node[label=above:$u$] {};
+    % phantom line (hack to fix bounding box)
+    \draw [draw=none] (O)--($ (O) - (3,0) $);
+
     \begin{scope}[raw gnuplot]
       \foreach \p in {0,1,2,3,4,5,6,7,8,9,10,11}
                \draw plot function{set polar; set parametric; plot [0.54930615:2.5] asin(cosh(t)/(2*sinh(t)))+\p*pi/6,t;}
@@ -13,6 +19,6 @@
   \end{tikzpicture}
   \caption[Геодезические линии с разными значениями параметра
   $C_2$]{Геодезические линии с разными значениями параметра $C_2$ при
-    \mbox{$C_1=2$}}
+    фиксированном \mbox{$C_1=2$}}
   \label{fig:geodesics-hyperbolic-2}
 \end{figure}

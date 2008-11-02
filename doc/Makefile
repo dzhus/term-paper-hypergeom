@@ -1,4 +1,6 @@
 DOCNAME := paper
+PDFLATEX := pdflatex --shell-escape
+BIBTEX := bibtex8 -B
 
 include ${DOCNAME}-deps.mk
 
@@ -11,12 +13,12 @@ ifneq (${MAKELEVEL}, 0)
 *.tkz: %.tkz.tex
 
 ${DOCNAME}.aux: ${INCLUDES} ${FIGS} ${DOCNAME}.tex ${DOCNAME}.bib
-	pdflatex --shell-escape ${DOCNAME}
-	bibtex8 -B ${DOCNAME}
+	${PDFLATEX} ${DOCNAME}
+	${BIBTEX} ${DOCNAME}
 
 ${DOCNAME}.pdf: ${DOCNAME}.aux
-	pdflatex --shell-escape ${DOCNAME}
-	pdflatex --shell-escape ${DOCNAME}
+	${PDFLATEX} ${DOCNAME}
+	${PDFLATEX} ${DOCNAME}
 
 ${DOCNAME}-deps.mk: ${DOCNAME}.tex ${INCLUDES}
 	texdepend -o $@ -print=if $<

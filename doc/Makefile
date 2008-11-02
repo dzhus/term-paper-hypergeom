@@ -10,6 +10,8 @@ ifneq (${MAKELEVEL}, 0)
 
 .SECONDEXPANSION:
 
+# This will make the whole paper rebuild when any included
+# illustration changes
 *.tkz: %.tkz.tex
 
 ${DOCNAME}.aux: ${INCLUDES} ${FIGS} ${DOCNAME}.tex ${DOCNAME}.bib

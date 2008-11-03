@@ -22,7 +22,7 @@ ${DOCNAME}.pdf: ${DOCNAME}.aux
 	${PDFLATEX} ${DOCNAME}
 	${PDFLATEX} ${DOCNAME}
 
-${DOCNAME}-deps.mk: ${DOCNAME}.tex ${INCLUDES}
+${DOCNAME}-deps.mk: ${DOCNAME}.tex
 	texdepend -o $@ -print=if $<
 
 doc: ${DOCNAME}.pdf

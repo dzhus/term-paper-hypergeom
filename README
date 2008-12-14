@@ -1,0 +1,5 @@
+You'll need GNU Make and modern TeX distribution (TeX Live 2008 is ok)
+to «build» this paper, but it will probably compile successfully using
+just TeX.
+
+Feel free to mail author: dima@sphinx.net.ru

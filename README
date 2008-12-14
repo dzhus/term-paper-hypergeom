@@ -1,5 +1,6 @@
-You'll need GNU Make and modern TeX distribution (TeX Live 2008 is ok)
-to «build» this paper, but it will probably compile successfully using
-just TeX.
+You'll need GNU Make, gnuplot and modern TeX distribution (TeX Live
+2008 is ok) to «build» this paper, but it will probably compile
+successfully using just TeX (see Makefile for `latex(1)` options
+needed).
 
 Feel free to mail author: dima@sphinx.net.ru
